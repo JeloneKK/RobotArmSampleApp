@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40371E0A-A6F7-480B-82EE-C83B40A76A39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RobotArm.UserManagementBusinessLogic</RootNamespace>
+    <AssemblyName>RobotArm.UserManagementBusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleBusinessLogics\UserRolesBusinessLogic.cs" />
+    <Compile Include="UserBusinessLogics\UserBusinessLogic.cs" />
+    <Compile Include="UserManagementBusinessLogicBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobotArm.BusinessLogicInterfaces\RobotArm.BusinessLogicInterfaces.csproj">
+      <Project>{2ABB5C87-920A-4F1F-B7F2-7D846D1EADEB}</Project>
+      <Name>RobotArm.BusinessLogicInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.CommonBusinessLogic\RobotArm.CommonBusinessLogic.csproj">
+      <Project>{07235B63-3AEF-47BA-93E5-902406D6802E}</Project>
+      <Name>RobotArm.CommonBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.Common\RobotArm.Common.csproj">
+      <Project>{F38436E9-6E96-4E83-9F29-AF9FB5FE923C}</Project>
+      <Name>RobotArm.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.Data\RobotArm.Data.csproj">
+      <Project>{7BBB03CF-D2D6-46F6-9CE2-B13B34884D50}</Project>
+      <Name>RobotArm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.RepositoriesInterfaces\RobotArm.RepositoriesInterfaces.csproj">
+      <Project>{09779F70-D31B-4A7E-A81C-B4E4BA7D4730}</Project>
+      <Name>RobotArm.RepositoriesInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
