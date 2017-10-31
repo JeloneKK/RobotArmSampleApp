@@ -27,7 +27,7 @@ namespace RobotArm.WebApp
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<DbContextFactory>().As<IDbContextFactory>().InstancePerRequest();
 
-            builder.RegisterType<UnitOfWork<UserDbContext>>().As<IUnitOfWork>().InstancePerRequest();
+            builder.RegisterType<UnitOfWork<UserManagementDbContext>>().As<IUnitOfWork>().InstancePerRequest();
             //builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerRequest();
             //builder.RegisterType<>().As<IUnitOfWork>().InstancePerRequest();
 

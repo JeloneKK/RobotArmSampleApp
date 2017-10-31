@@ -7,7 +7,7 @@ using RobotArm.RepositoriesInterfaces.UserManagement;
 
 namespace RobotArm.UserManagementRepositories
 {
-    public class UserManagementRepositoryBase<TEntity> : RepositoryBase<TEntity, UserDbContext>, IUserManagementRepository<TEntity>
+    public class UserManagementRepositoryBase<TEntity> : RepositoryBase<TEntity, UserManagementDbContext>, IUserManagementRepository<TEntity>
         where TEntity : class
     {
         protected UserManagementRepositoryBase(IAmbientDbContextLocator ambientDbContextLocator) 

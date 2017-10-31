@@ -8,9 +8,9 @@ using RobotArm.Data.Entities.UserManagement;
 
 namespace RobotArm.Data.SeedData.UserManagement
 {
-    public class UserManagementSeedData : DropCreateDatabaseIfModelChanges<UserDbContext>
+    public class UserManagementSeedData : DropCreateDatabaseIfModelChanges<UserManagementDbContext>
     {
-        protected override void Seed(UserDbContext context)
+        protected override void Seed(UserManagementDbContext context)
         {
             Role[] roles = GetRoles().ToArray();
             context.Roles.AddOrUpdate(r => r.RoleId, roles);

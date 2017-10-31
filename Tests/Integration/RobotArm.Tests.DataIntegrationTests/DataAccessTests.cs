@@ -12,7 +12,7 @@ namespace RobotArm.Tests.DataIntegrationTests
         public void UserDbContextCreated_AccessDate_DataIsReceived()
         {
             // Arrange
-            using (UserDbContext userDbContext = new UserDbContext())
+            using (UserManagementDbContext userDbContext = new UserManagementDbContext())
             {
                 // Act
                 var roles = userDbContext.Roles.Where(e => true);

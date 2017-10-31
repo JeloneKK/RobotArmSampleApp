@@ -5,15 +5,15 @@ namespace RobotArm.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<RobotArm.Data.DbContexts.UserManagement.UserDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<RobotArm.Data.DbContexts.UserManagement.UserManagementDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "RobotArm.Data.DbContexts.UserManagement.UserDbContext";
+            ContextKey = "RobotArm.Data.DbContexts.UserManagement.UserManagementDbContext";
         }
 
-        protected override void Seed(RobotArm.Data.DbContexts.UserManagement.UserDbContext context)
+        protected override void Seed(RobotArm.Data.DbContexts.UserManagement.UserManagementDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
