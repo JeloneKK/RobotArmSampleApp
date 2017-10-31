@@ -3,8 +3,6 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.Data.Configurations.UserManagement;
-using RobotArm.Data.DbContexts.Identity;
-using RobotArm.Data.Entities.Identity;
 using RobotArm.Data.Entities.UserManagement;
 
 namespace RobotArm.Data.DbContexts.UserManagement
@@ -17,10 +15,10 @@ namespace RobotArm.Data.DbContexts.UserManagement
             
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Configurations.Add(new UserConfiguration());
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Configurations.Add(new UserConfiguration());
+        //}
 
         public override int SaveChanges()
         {
