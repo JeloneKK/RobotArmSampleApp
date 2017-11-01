@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\UserManagement\UserConfiguration.cs" />
+    <Compile Include="Configurations\UserManagement\IdentityUserLoginConfiguration.cs" />
+    <Compile Include="Configurations\UserManagement\IdentityUserRoleConfiguration.cs" />
+    <Compile Include="Configurations\UserManagement\ApplicationUserConfiguration.cs" />
     <Compile Include="DbContexts\UserManagement\UserManagementDbContext.cs" />
     <Compile Include="Entities\UserManagement\ApplicationUser.cs" />
     <Compile Include="Entities\UserManagement\Role.cs" />
