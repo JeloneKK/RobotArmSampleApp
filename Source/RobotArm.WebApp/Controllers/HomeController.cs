@@ -8,17 +8,23 @@ using RobotArm.ServicesContracts.UserManagement.ServiceContracts;
 
 namespace RobotArm.WebApp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILoginService _loginService;
         private IUserService _userService;
 
-        public HomeController(ILoginService loginService, IUserService userService)
-        {
-            var userIdentity = User.Identity;
+        //public HomeController(ILoginService loginService, IUserService userService)
+        //{
+        //    var userIdentity = User.Identity;
 
-            _loginService = loginService;
-            _userService = userService;
+        //    _loginService = loginService;
+        //    _userService = userService;
+        //}
+
+        public HomeController()
+        {
+            
         }
 
         public ActionResult Index()

@@ -1,0 +1,35 @@
+﻿$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.input_div {
+    div {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 2px;
+        display: block;
+
+        input {
+            display: block
+        }
+    }
+}
+
+.checkbox_div {
+    input {
+        float: left;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
+        position: relative;
+    }
+
+    label {
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+}

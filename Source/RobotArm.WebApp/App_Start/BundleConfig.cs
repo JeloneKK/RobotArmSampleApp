@@ -25,6 +25,7 @@ namespace RobotArm.WebApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/global.css",
                       "~/Content/site.css"));
 
             BundleTable.EnableOptimizations = true;
