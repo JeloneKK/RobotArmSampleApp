@@ -12,77 +12,77 @@ namespace RobotArm.WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        //private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly SignInManager<ApplicationUser, string> _signInManager;
-        //private IAuthenticationManager _authenticationManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser, string> _signInManager;
+        private IAuthenticationManager _authenticationManager;
 
-        //public AccountController(
-        //    UserManager<ApplicationUser> userManager)
-        //    //SignInManager<ApplicationUser, string> signInManager)
-        //{
-        //    _userManager = userManager;
-        //    //_signInManager = signInManager;
-        //}
+        public AccountController(
+            UserManager<ApplicationUser> userManager)
+            //SignInManager<ApplicationUser, string> signInManager)
+        {
+            _userManager = userManager;
+            //_signInManager = signInManager;
+        }
 
-        //public IAuthenticationManager AuthenticationManager
-        //{
-        //    get => _authenticationManager ?? (_authenticationManager = HttpContext.GetOwinContext().Authentication);
-        //    set => _authenticationManager = value;
-        //}
+        public IAuthenticationManager AuthenticationManager
+        {
+            get => _authenticationManager ?? (_authenticationManager = HttpContext.GetOwinContext().Authentication);
+            set => _authenticationManager = value;
+        }
 
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public ActionResult Login(string returnUrl = null)
-        //{
-        //    if (Request.QueryString["guid"] != null)
-        //    {
-        //        CurrentSessionFacade.Join = Request.QueryString["guid"];
-        //    }
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl = null)
+        {
+            if (Request.QueryString["guid"] != null)
+            {
+                CurrentSessionFacade.Join = Request.QueryString["guid"];
+            }
 
-        //    LoginViewModel model = new LoginViewModel();
-        //    model.ReturnUrl = returnUrl;
-        //    return View(model);
-        //}
+            LoginViewModel model = new LoginViewModel();
+            model.ReturnUrl = returnUrl;
+            return View(model);
+        }
 
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = await _userManager.FindAsync(model.Login, model.Password);
-        //        if (user != null)
-        //        {
-        //            await SignInAsync(user, model.RememberMe);
-        //            return RedirectToLocal(returnUrl);
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Invalid username or password.");
-        //        }
-        //    }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindAsync(model.Login, model.Password);
+                if (user != null)
+                {
+                    await SignInAsync(user, model.RememberMe);
+                    return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                }
+            }
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
-        //private async Task SignInAsync(ApplicationUser user, bool isPersistent)
-        //{
-        //    _authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-        //    var identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-        //    AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
-        //}
+        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            _authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+        }
 
-        //private ActionResult RedirectToLocal(string returnUrl)
-        //{
-        //    if (Url.IsLocalUrl(returnUrl))
-        //    {
-        //        return Redirect(returnUrl);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //}
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
     }
 }

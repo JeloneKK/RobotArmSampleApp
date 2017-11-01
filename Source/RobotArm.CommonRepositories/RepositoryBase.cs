@@ -8,14 +8,12 @@ using RobotArm.Common.Patterns.DbContext.DbContextScope;
 using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
 using RobotArm.Common.Patterns.DbContext.UnitOfWork;
 using RobotArm.RepositoriesInterfaces;
-using DbContext = Microsoft.EntityFrameworkCore.DbContext;
-using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
 namespace RobotArm.CommonRepositories
 {
     public class RepositoryBase<TEntity, TDbContext> : IRepository<TEntity> 
         where TEntity : class
-        where TDbContext : DbContext
+        where TDbContext : DbContext, new()
     {
         private readonly IAmbientDbContextLocator _ambientDbContextLocator;
 

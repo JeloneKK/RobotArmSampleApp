@@ -14,14 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\RobotArm.Common\RobotArm.Common.csproj" />
     <ProjectReference Include="..\..\Source\RobotArm.Data\RobotArm.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Accessibility">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\Accessibility.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
