@@ -33,7 +33,7 @@ namespace RobotArm.Data.SeedData.UserManagement
                 context.Users.AddOrUpdate(userWithRoles.User);
             }
 
-            context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
         private class UserWithRoles

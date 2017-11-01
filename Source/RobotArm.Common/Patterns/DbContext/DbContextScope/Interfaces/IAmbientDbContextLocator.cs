@@ -11,6 +11,6 @@
         /// 
         /// Otherwise returns null. 
         /// </summary>
-        TDbContext Get<TDbContext>() where TDbContext : System.Data.Entity.DbContext;
+        TDbContext Get<TDbContext>() where TDbContext : ;
     }
 }

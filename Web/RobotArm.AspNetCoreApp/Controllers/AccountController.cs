@@ -1,12 +1,8 @@
 ﻿using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using RobotArm.Data.Entities.UserManagement;
-using RobotArm.WebApp.Helpers;
-using RobotArm.WebApp.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RobotArm.WebApp.Controllers
 {
