@@ -13,15 +13,12 @@ namespace RobotArm.WebApp.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser, string> _signInManager;
         private IAuthenticationManager _authenticationManager;
 
         public AccountController(
             UserManager<ApplicationUser> userManager)
-            //SignInManager<ApplicationUser, string> signInManager)
         {
             _userManager = userManager;
-            //_signInManager = signInManager;
         }
 
         public IAuthenticationManager AuthenticationManager
@@ -66,9 +63,17 @@ namespace RobotArm.WebApp.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
-            _authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }

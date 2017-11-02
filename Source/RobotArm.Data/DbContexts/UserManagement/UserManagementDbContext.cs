@@ -1,8 +1,6 @@
 ﻿using System.Configuration;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using Microsoft.AspNet.Identity.EntityFramework;
-using RobotArm.Data.Configurations.UserManagement;
 using RobotArm.Data.Entities.UserManagement;
 
 namespace RobotArm.Data.DbContexts.UserManagement

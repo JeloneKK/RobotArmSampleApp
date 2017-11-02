@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Text;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
 using RobotArm.Data.Entities.UserManagement;
+using RobotArm.WebApp;
 
 
+[assembly: OwinStartup(typeof(Startup))]
 namespace RobotArm.WebApp
 {
     public class Startup
     {
-        public void Configuration(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configuration(IAppBuilder app)
         {
-            if (env.IsDevelopment())
+            // Enable the application to use a cookie to store information for the signed in user
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Catalog/Error");
-            }
-
-            app.UseAuthentication();
-
-            app.UseMvc();
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Account/Login")
+            });
+            // Use a cookie to temporarily store information about a user logging in with a third party login provider
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
         }
     }
 }

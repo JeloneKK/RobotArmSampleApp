@@ -29,7 +29,6 @@ namespace RobotArm.WebApp.Controllers
 
         public ActionResult Index()
         {
-            _loginService.Login("JKowalski", "ABCD");
             return View();
         }
 

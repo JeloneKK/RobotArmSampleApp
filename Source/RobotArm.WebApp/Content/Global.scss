@@ -16,6 +16,10 @@ body {
         input {
             display: block
         }
+
+        span {
+            color: red;
+        }
     }
 }
 
@@ -31,5 +35,19 @@ body {
     label {
         margin-left: 10px;
         vertical-align: middle;
+    }
+}
+
+.text-danger {
+    color: red;
+}
+
+.form-logoff {
+    vertical-align: central;
+    padding-top: 18px;
+    padding-bottom: 10px;
+
+    a {
+        text-decoration: none
     }
 }

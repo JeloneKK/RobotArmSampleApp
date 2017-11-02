@@ -1,12 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace RobotArm.WebApp.ViewModels
 {
     public class LoginViewModel
     {
-        [Display(Description = "Username")]
+        [Required]
+        [DisplayName("Username")]
         public string Login { get; set; }
-        [Display(Description = "Password")]
+        [Required]
+        [DisplayName("Password")]
         public string Password { get; set; }
         public bool RememberMe { get; set; }
         public string ReturnUrl { get; set; }              

@@ -1,0 +1,13 @@
+﻿@using System.Web.Mvc;
+@using System.Web.Mvc.Ajax
+@using RobotArm.WebApp.Helpers
+
+@using (Html.BeginForm("Logoff", "Account", null, FormMethod.Post, new { @class = "form-logoff" }))
+{
+    @Html.AntiForgeryToken()
+    <li>
+        <a href="javascript:document.forms[0].submit()">Log off</a>
+    </li>
+
+}
+

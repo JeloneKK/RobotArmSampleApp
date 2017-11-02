@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{E49A6F02-D598-41CE-9EEB-42864E587ED3}"
 EndProject
@@ -56,8 +56,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.UserManagementServicesWpfHost", "Hosts\RobotArm.UserManagementServicesWpfHost\RobotArm.UserManagementServicesWpfHost.csproj", "{BB4BE573-0720-4514-AD4D-A245E23AB3BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.HostingCommon", "Hosts\RobotArm.HostingCommon\RobotArm.HostingCommon.csproj", "{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.AspNetCoreApp", "Web\RobotArm.AspNetCoreApp\RobotArm.AspNetCoreApp.csproj", "{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,10 +127,6 @@ Global
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,7 +156,6 @@ Global
 		{B14E643E-6D1E-49F3-8CC0-DFB1A16192FA} = {F31BC937-0855-42C2-B1DC-F11DF756265E}
 		{BB4BE573-0720-4514-AD4D-A245E23AB3BF} = {7EE8C643-77B7-4C86-BB01-526BB1607846}
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B} = {F31BC937-0855-42C2-B1DC-F11DF756265E}
-		{E43D9E1F-EF3E-4DD3-8F18-DB8E2F4DF66D} = {9E651041-1716-45A1-94EA-DB1789C4127F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90EBEA61-400E-4427-B3FA-59784D4B0A68}

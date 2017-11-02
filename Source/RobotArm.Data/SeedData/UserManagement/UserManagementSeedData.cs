@@ -14,26 +14,45 @@ namespace RobotArm.Data.SeedData.UserManagement
     {
         protected override void Seed(UserManagementDbContext context)
         {
-            UserWithRoles[] usersWithRoles = {
-                new UserWithRoles("Admin", new string[] { "Administrator" , "Distributor" },"somepassword"),//user and optional roles and password you want to seed 
-                new UserWithRoles("PlainUser"),
-                new UserWithRoles("Jojo",new string[]{"Distributor" }) //seed roles to existing users (e.g. facebook login).
-            };
+            InitializeIdentityForEf(context);
+            base.Seed(context);
+        }
 
-            foreach (var userWithRoles in usersWithRoles)
+        public static void InitializeIdentityForEf(UserManagementDbContext db)
+        {
+
+            if (!db.Users.Any())
             {
-                foreach (string role in userWithRoles.Roles)
+                var roleStore = new RoleStore<IdentityRole>(db);
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+                var userStore = new UserStore<ApplicationUser>(db);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+
+                // Add missing roles
+                var role = roleManager.FindByName("Admin");
+                if (role == null)
                 {
-                    if (!context.Roles.Any(r => r.Name == role))
-                    {
-                        context.Roles.AddOrUpdate(new IdentityRole(role));
-                    }
+                    role = new IdentityRole("Admin");
+                    roleManager.Create(role);
                 }
 
-                context.Users.AddOrUpdate(userWithRoles.User);
+                // Create test users
+                var user = userManager.FindByName("admin");
+                if (user == null)
+                {
+                    var newUser = new ApplicationUser()
+                    {
+                        UserName = "admin",
+                        FirstName = "Admin",
+                        LastName = "User",
+                        Email = "xxx@xxx.net",
+                        PhoneNumber = "5551234567"
+                    };
+                    userManager.Create(newUser, "Password1");
+                    userManager.SetLockoutEnabled(newUser.Id, false);
+                    userManager.AddToRole(newUser.Id, "Admin");
+                }
             }
-
-            context.SaveChangesAsync();
         }
 
         private class UserWithRoles
@@ -48,14 +67,12 @@ namespace RobotArm.Data.SeedData.UserManagement
                 User = new ApplicationUser
                 {
                     Email = name + "@gmail.com",
-                    NormalizedEmail = name.ToUpper() + "@GMAIL.COM",
                     UserName = name,
-                    NormalizedUserName = name.ToUpper(),
                     PhoneNumber = "+1312341234",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D"),
-                    PasswordHash = new PasswordHasher().HashPassword(password),
+                    PasswordHash = new PasswordHasher().HashPassword(password)
                 };
             }
         }

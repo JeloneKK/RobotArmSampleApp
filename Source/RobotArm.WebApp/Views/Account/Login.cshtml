@@ -7,18 +7,19 @@
 
 <h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Account", new { Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (@Html.BeginForm("Login", "Account", new { Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-
     <div class="input_div">
         <div>
-            @Html.LabelFor(x => x.Login, new { @class = "" })
-            @Html.TextBoxFor(x => x.Login, new { @class = "" })
+            @Html.LabelFor(x => x.Login, new {@class = ""})
+            @Html.TextBoxFor(x => x.Login, new {@class = ""})
+            @Html.ValidationMessageFor(x => x.Login)
         </div>
         <div>
             @Html.LabelFor(x => x.Password)
             @Html.TextBoxFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password)
         </div>
         <div class="checkbox_div">
             @Html.CheckBoxFor(x => x.RememberMe)
@@ -27,5 +28,6 @@
         <div>
             @Html.Button("Login")
         </div>
+        @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
     </div>
 }
