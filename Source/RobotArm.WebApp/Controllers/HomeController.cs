@@ -11,20 +11,11 @@ namespace RobotArm.WebApp.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILoginService _loginService;
         private IUserService _userService;
 
-        //public HomeController(ILoginService loginService, IUserService userService)
-        //{
-        //    var userIdentity = User.Identity;
-
-        //    _loginService = loginService;
-        //    _userService = userService;
-        //}
-
-        public HomeController()
+        public HomeController(IUserService userService)
         {
-            
+            _userService = userService;
         }
 
         public ActionResult Index()

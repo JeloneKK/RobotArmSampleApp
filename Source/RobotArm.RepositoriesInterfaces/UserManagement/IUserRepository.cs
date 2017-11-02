@@ -2,7 +2,7 @@
 
 namespace RobotArm.RepositoriesInterfaces.UserManagement
 {
-    public interface IUserRepository : IUserManagementRepository<User>
+    public interface IUserRepository : IUserManagementRepository<ApplicationUser>
     {
         
     }

@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.Data.Entities.UserManagement;
 
 namespace RobotArm.BusinessLogicInterfaces.UserManagement
 {
     public interface IUserBusinessLogic
     {
-        User GetUser(int userId);
-        List<Role> GetUserRoles(int userId);
-        void CreateUser(User user);
+        ApplicationUser GetUser(int userId);
+        List<ApplicationUser> GetAllUsers();
+        List<IdentityUserRole> GetUserRoles(int userId);
+        void CreateUser(ApplicationUser user);
     }
 }

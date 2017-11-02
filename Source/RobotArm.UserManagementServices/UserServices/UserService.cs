@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
 using AutoMapper;
+using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.BusinessLogicInterfaces.UserManagement;
 using RobotArm.Common.Logging.Helpers;
 using RobotArm.Common.Patterns.DbContext;
@@ -33,7 +34,7 @@ namespace RobotArm.UserManagementServices.UserServices
 
         public UserDto GetUser(int userId)
         {
-            User user;
+            ApplicationUser user;
 
             try
             {
@@ -57,9 +58,35 @@ namespace RobotArm.UserManagementServices.UserServices
             return userDto;
         }
 
+        public List<UserDto> GetAllUsers()
+        {
+            List<ApplicationUser> users;
+
+            try
+            {
+                users = _userBusinessLogic.GetAllUsers();
+            }
+            catch (ArgumentException ex)
+            {
+                this.Log.Error(LogHelper.GetMethodInfoErrorMessage(MethodBase.GetCurrentMethod()), ex);
+
+                var fault = new EntityNotFoundFault
+                {
+                    Message = "User not found",
+                    EntityName = typeof(User).Name
+                };
+
+                throw new FaultException<EntityNotFoundFault>(fault);
+            }
+
+            List<UserDto> usersDtos = Mapper.Map<List<UserDto>>(users);
+
+            return usersDtos;
+        }
+
         public List<RoleDto> GetUserRoles(int userId)
         {
-            List<Role> roles;
+            List<IdentityUserRole> roles;
 
             try
             {
@@ -72,7 +99,7 @@ namespace RobotArm.UserManagementServices.UserServices
                 var fault = new EntityNotFoundFault
                 {
                     Message = "User not found",
-                    EntityName = typeof(User).Name
+                    EntityName = typeof(ApplicationUser).Name
                 };
 
                 throw new FaultException<EntityNotFoundFault>(fault);
@@ -96,7 +123,7 @@ namespace RobotArm.UserManagementServices.UserServices
                 throw new FaultException<ArgumentFault>(fault);
             }
 
-            User userEntity = Mapper.Map<User>(user);
+            ApplicationUser userEntity = Mapper.Map<ApplicationUser>(user);
 
             _userBusinessLogic.CreateUser(userEntity);
         }

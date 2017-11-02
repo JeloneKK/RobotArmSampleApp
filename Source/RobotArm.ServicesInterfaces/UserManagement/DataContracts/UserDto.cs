@@ -9,7 +9,7 @@ namespace RobotArm.ServicesContracts.UserManagement.DataContracts
         [DataMember]
         public int UserId { get; set; }
         [DataMember]
-        public string Login { get; set; }
+        public string Email { get; set; }
         [DataMember]
         public string FirstName { get; set; }
         [DataMember]
