@@ -8,7 +8,7 @@ namespace RobotArm.UserManagementServices.Mappings
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<UserMapping>();
+                x.AddProfile<UserMappingProfile>();
             });
         }
     }

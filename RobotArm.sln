@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.UserManagementServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.HostingCommon", "Hosts\RobotArm.HostingCommon\RobotArm.HostingCommon.csproj", "{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotArm.ServicesClients", "Source\RobotArm.ServicesClients\RobotArm.ServicesClients.csproj", "{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,10 @@ Global
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +162,7 @@ Global
 		{B14E643E-6D1E-49F3-8CC0-DFB1A16192FA} = {F31BC937-0855-42C2-B1DC-F11DF756265E}
 		{BB4BE573-0720-4514-AD4D-A245E23AB3BF} = {7EE8C643-77B7-4C86-BB01-526BB1607846}
 		{A75C44A9-B0A0-43F4-8385-2E0EA5A5250B} = {F31BC937-0855-42C2-B1DC-F11DF756265E}
+		{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5} = {47F81AF3-22DE-4C49-8AF9-71AC668ABF1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90EBEA61-400E-4427-B3FA-59784D4B0A68}

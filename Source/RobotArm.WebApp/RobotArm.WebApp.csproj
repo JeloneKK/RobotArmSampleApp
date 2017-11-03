@@ -607,6 +607,10 @@
       <Project>{09779F70-D31B-4A7E-A81C-B4E4BA7D4730}</Project>
       <Name>RobotArm.RepositoriesInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RobotArm.ServicesClients\RobotArm.ServicesClients.csproj">
+      <Project>{6E4F18E0-CC4F-4E40-AD25-11B8D61467F5}</Project>
+      <Name>RobotArm.ServicesClients</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RobotArm.ServicesInterfaces\RobotArm.ServicesContracts.csproj">
       <Project>{743A14BF-1E5F-46E0-80BD-52A49B57A7C5}</Project>
       <Name>RobotArm.ServicesContracts</Name>

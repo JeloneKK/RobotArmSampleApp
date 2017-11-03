@@ -9,7 +9,7 @@ namespace RobotArm.WebApp.Mappings
     {
         public override string ProfileName => nameof(UserManagementMapping);
 
-        protected void Configure()
+        public UserManagementMapping()
         {
             CreateMap<UserDto, UserViewModel>();
             CreateMap<UserViewModel, UserDto>();

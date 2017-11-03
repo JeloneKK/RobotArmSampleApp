@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RobotArm.Data.Entities.UserManagement;
+using RobotArm.ServicesClients.UserManagement;
 using RobotArm.WebApp.Helpers;
 using RobotArm.WebApp.ViewModels;
 
@@ -31,6 +32,8 @@ namespace RobotArm.WebApp.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl = null)
         {
+            UserServiceClient client = new UserServiceClient();
+
             if (Request.QueryString["guid"] != null)
             {
                 CurrentSessionFacade.Join = Request.QueryString["guid"];

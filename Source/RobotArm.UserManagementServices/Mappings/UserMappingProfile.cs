@@ -5,11 +5,11 @@ using RobotArm.ServicesContracts.UserManagement.DataContracts;
 
 namespace RobotArm.UserManagementServices.Mappings
 {
-    public class UserMapping : Profile
+    public class UserMappingProfile : Profile
     {
-        public override string ProfileName => nameof(UserMapping);
+        public override string ProfileName => nameof(UserMappingProfile);
 
-        protected void Configure()
+        public UserMappingProfile()
         {
             CreateMap<User, UserDto>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());

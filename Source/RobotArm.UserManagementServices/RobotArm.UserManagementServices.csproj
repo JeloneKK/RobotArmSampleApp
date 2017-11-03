@@ -63,7 +63,7 @@
     <Compile Include="ErrorHandling\UserManagementGlobalErrorHandler.cs" />
     <Compile Include="LoginServices\LoginService.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
-    <Compile Include="Mappings\UserMapping.cs" />
+    <Compile Include="Mappings\UserMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManagementServiceBase.cs" />
     <Compile Include="UserServices\UserService.cs" />

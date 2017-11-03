@@ -13,9 +13,14 @@ namespace RobotArm.WebApp.Controllers
     {
         private IUserService _userService;
 
-        public HomeController(IUserService userService)
+        //public HomeController(IUserService userService)
+        //{
+        //    _userService = userService;
+        //}
+
+        public HomeController()
         {
-            _userService = userService;
+            
         }
 
         public ActionResult Index()
