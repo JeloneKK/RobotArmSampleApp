@@ -1,13 +1,27 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = ViewBag.Title ?? "Internal Server Error";
+}
+<div class="list-header clearfix">
+    <span>Error : @ViewBag.Title</span>
+</div>
+<div class="list-sfs-holder">
+    <div class="alert alert-error">
+        An unexpected error has occurred. Please contact the system administrator.
+    </div>
+    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+    {
+        <div>
+            <p>
+                <b>Exception:</b> @Model.Exception.Message<br />
+                <b>Controller:</b> @Model.ControllerName<br />
+                <b>Action:</b> @Model.ActionName
+            </p>
+            <div style="overflow: scroll">
+                <pre>
+                    @Model.Exception.StackTrace
+                </pre>
+            </div>
+        </div>
+    }
+</div>

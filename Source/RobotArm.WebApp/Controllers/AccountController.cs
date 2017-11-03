@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -6,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.ServicesClients.UserManagement;
+using RobotArm.WebApp.ErrorHandlers;
 using RobotArm.WebApp.Helpers;
 using RobotArm.WebApp.ViewModels;
 
@@ -32,8 +34,6 @@ namespace RobotArm.WebApp.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl = null)
         {
-            UserServiceClient client = new UserServiceClient();
-
             if (Request.QueryString["guid"] != null)
             {
                 CurrentSessionFacade.Join = Request.QueryString["guid"];
@@ -47,6 +47,7 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [CustomHandleError]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -68,6 +69,7 @@ namespace RobotArm.WebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [CustomHandleError]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();

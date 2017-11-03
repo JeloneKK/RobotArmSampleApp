@@ -9,6 +9,7 @@ using log4net.Repository;
 
 namespace RobotArm.Common.Logging
 {
+    // TODO: Factory should rather be injected then just be static
     public static class LoggerFactory
     {
         private static readonly Dictionary<ELogger, ILog> Loggers = new Dictionary<ELogger, ILog>
