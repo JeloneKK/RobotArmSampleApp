@@ -41,7 +41,7 @@ namespace RobotArm.WebApp.Controllers
         public ActionResult Edit(UserViewModel user)
         {
             _userModel.Update(user);
-            return View(user);
+            return View("Details", user);
         }
 
         public ActionResult Create()
@@ -54,7 +54,7 @@ namespace RobotArm.WebApp.Controllers
         public ActionResult Create(UserViewModel user)
         {
             _userModel.Create(user);
-            return View(user);
+            return View("Details", user);
         }
 
         [HttpPost]
