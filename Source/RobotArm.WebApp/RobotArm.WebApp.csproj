@@ -528,6 +528,7 @@
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Interfaces\IAccountModel.cs" />
     <Compile Include="Models\Interfaces\IUserModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />

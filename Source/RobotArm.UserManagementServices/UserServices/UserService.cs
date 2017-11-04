@@ -66,17 +66,11 @@ namespace RobotArm.UserManagementServices.UserServices
             {
                 users = _userBusinessLogic.GetAllUsers();
             }
-            catch (ArgumentException ex)
+            catch (Exception ex)
             {
                 this.Log.Error(LogHelper.GetMethodInfoErrorMessage(MethodBase.GetCurrentMethod()), ex);
 
-                var fault = new EntityNotFoundFault
-                {
-                    Message = "User not found",
-                    EntityName = typeof(User).Name
-                };
-
-                throw new FaultException<EntityNotFoundFault>(fault);
+                throw new FaultException();
             }
 
             List<UserDto> usersDtos = Mapper.Map<List<UserDto>>(users);
