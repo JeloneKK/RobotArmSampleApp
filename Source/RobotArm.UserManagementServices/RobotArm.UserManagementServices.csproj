@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorHandling\UserManagementGlobalErrorHandler.cs" />
-    <Compile Include="LoginServices\LoginService.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\UserMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleServices\RoleService.cs" />
     <Compile Include="UserManagementServiceBase.cs" />
     <Compile Include="UserServices\UserService.cs" />
   </ItemGroup>

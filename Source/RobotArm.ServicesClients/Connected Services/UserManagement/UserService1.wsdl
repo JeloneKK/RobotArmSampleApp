@@ -10,9 +10,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RobotArm.ServicesContracts.UserManagement.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:7001/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7001/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7001/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RobotArm.ServicesContracts.UserManagement.DataContracts" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_GetUser_InputMessage">
@@ -99,9 +99,9 @@
   </wsdl:binding>
   <wsdl:service name="UserService">
     <wsdl:port name="NetTcpBinding_IUserService" binding="tns:NetTcpBinding_IUserService">
-      <soap12:address location="net.tcp://localhost:8090/UserService" />
+      <soap12:address location="net.tcp://localhost:8001/UserService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8090/UserService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8001/UserService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

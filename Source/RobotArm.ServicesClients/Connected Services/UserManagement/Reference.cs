@@ -39,7 +39,10 @@ namespace RobotArm.ServicesClients.UserManagement {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
+        private RobotArm.ServicesClients.UserManagement.RoleDto[] RolesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -117,12 +120,25 @@ namespace RobotArm.ServicesClients.UserManagement {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
+        public RobotArm.ServicesClients.UserManagement.RoleDto[] Roles {
+            get {
+                return this.RolesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RolesField, value) != true)) {
+                    this.RolesField = value;
+                    this.RaisePropertyChanged("Roles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserId {
             get {
                 return this.UserIdField;
             }
             set {
-                if ((this.UserIdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
                     this.UserIdField = value;
                     this.RaisePropertyChanged("UserId");
                 }
@@ -153,7 +169,7 @@ namespace RobotArm.ServicesClients.UserManagement {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RoleIdField;
+        private string RoleIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -179,12 +195,12 @@ namespace RobotArm.ServicesClients.UserManagement {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RoleId {
+        public string RoleId {
             get {
                 return this.RoleIdField;
             }
             set {
-                if ((this.RoleIdField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.RoleIdField, value) != true)) {
                     this.RoleIdField = value;
                     this.RaisePropertyChanged("RoleId");
                 }
@@ -206,10 +222,10 @@ namespace RobotArm.ServicesClients.UserManagement {
     public interface IUserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUser", ReplyAction="http://tempuri.org/IUserService/GetUserResponse")]
-        RobotArm.ServicesClients.UserManagement.UserDto GetUser(int userId);
+        RobotArm.ServicesClients.UserManagement.UserDto GetUser(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUser", ReplyAction="http://tempuri.org/IUserService/GetUserResponse")]
-        System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.UserDto> GetUserAsync(int userId);
+        System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.UserDto> GetUserAsync(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllUsers", ReplyAction="http://tempuri.org/IUserService/GetAllUsersResponse")]
         RobotArm.ServicesClients.UserManagement.UserDto[] GetAllUsers();
@@ -218,10 +234,10 @@ namespace RobotArm.ServicesClients.UserManagement {
         System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.UserDto[]> GetAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserRoles", ReplyAction="http://tempuri.org/IUserService/GetUserRolesResponse")]
-        RobotArm.ServicesClients.UserManagement.RoleDto[] GetUserRoles(int userId);
+        RobotArm.ServicesClients.UserManagement.RoleDto[] GetUserRoles(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserRoles", ReplyAction="http://tempuri.org/IUserService/GetUserRolesResponse")]
-        System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.RoleDto[]> GetUserRolesAsync(int userId);
+        System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.RoleDto[]> GetUserRolesAsync(string userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/CreateUser", ReplyAction="http://tempuri.org/IUserService/CreateUserResponse")]
         void CreateUser(RobotArm.ServicesClients.UserManagement.UserDto user);
@@ -257,11 +273,11 @@ namespace RobotArm.ServicesClients.UserManagement {
                 base(binding, remoteAddress) {
         }
         
-        public RobotArm.ServicesClients.UserManagement.UserDto GetUser(int userId) {
+        public RobotArm.ServicesClients.UserManagement.UserDto GetUser(string userId) {
             return base.Channel.GetUser(userId);
         }
         
-        public System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.UserDto> GetUserAsync(int userId) {
+        public System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.UserDto> GetUserAsync(string userId) {
             return base.Channel.GetUserAsync(userId);
         }
         
@@ -273,11 +289,11 @@ namespace RobotArm.ServicesClients.UserManagement {
             return base.Channel.GetAllUsersAsync();
         }
         
-        public RobotArm.ServicesClients.UserManagement.RoleDto[] GetUserRoles(int userId) {
+        public RobotArm.ServicesClients.UserManagement.RoleDto[] GetUserRoles(string userId) {
             return base.Channel.GetUserRoles(userId);
         }
         
-        public System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.RoleDto[]> GetUserRolesAsync(int userId) {
+        public System.Threading.Tasks.Task<RobotArm.ServicesClients.UserManagement.RoleDto[]> GetUserRolesAsync(string userId) {
             return base.Channel.GetUserRolesAsync(userId);
         }
         

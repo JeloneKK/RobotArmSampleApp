@@ -48,7 +48,7 @@
     <Compile Include="UserManagement\FaultContracts\ArgumentFault.cs" />
     <Compile Include="UserManagement\FaultContracts\BaseFault.cs" />
     <Compile Include="UserManagement\FaultContracts\EntityNotFoundFault.cs" />
-    <Compile Include="UserManagement\ServiceContracts\ILoginService.cs" />
+    <Compile Include="UserManagement\ServiceContracts\IRoleService.cs" />
     <Compile Include="UserManagement\ServiceContracts\IUserService.cs" />
   </ItemGroup>
   <ItemGroup>

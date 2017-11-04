@@ -5,15 +5,11 @@ using RobotArm.ServicesContracts.UserManagement.DataContracts;
 namespace RobotArm.ServicesContracts.UserManagement.ServiceContracts
 {
     [ServiceContract]
-    public interface IUserService
-    {       
+    public interface IRoleService
+    {
         [OperationContract]
-        UserDto GetUser(string userId);
+        RoleDto GetRole(string roleId);
         [OperationContract]
-        List<UserDto> GetAllUsers();
-        [OperationContract]
-        List<RoleDto> GetUserRoles(string userId);
-        [OperationContract]
-        void CreateUser(UserDto user);
+        List<RoleDto> GetAllRoles();
     }
 }

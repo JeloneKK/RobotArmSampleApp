@@ -25,13 +25,13 @@ namespace RobotArm.WebApp.Controllers
             return View(userViewModels);
         }
 
-        public ActionResult Details(int userId)
+        public ActionResult Details(string userId)
         {
             UserViewModel userViewModel = _userModel.Get(userId);
             return View(userViewModel);
         }
 
-        public ActionResult Edit(int userId)
+        public ActionResult Edit(string userId)
         {
             UserViewModel userViewModel = _userModel.Get(userId);
             return View(userViewModel);
@@ -58,7 +58,7 @@ namespace RobotArm.WebApp.Controllers
         }
 
         [HttpPost]
-        public void Delete(int userId)
+        public void Delete(string userId)
         {
             _userModel.Delete(userId);
         }

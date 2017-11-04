@@ -31,7 +31,7 @@ namespace RobotArm.WebApp.Models
             }
         }
 
-        public UserViewModel Get(int userId)
+        public UserViewModel Get(string userId)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace RobotArm.WebApp.Models
             throw new System.NotImplementedException();
         }
 
-        public void Delete(int userId)
+        public void Delete(string userId)
         {
             throw new System.NotImplementedException();
         }

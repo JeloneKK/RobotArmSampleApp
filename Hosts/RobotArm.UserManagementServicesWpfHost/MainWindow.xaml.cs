@@ -18,7 +18,8 @@ namespace RobotArm.UserManagementServicesWpfHost
 
             this.StartStopServiceWpfControl.DataContext = new StartStopServiceViewModel(
                 serviceHostInitializer,
-                typeof(IUserService));
+                typeof(IUserService),
+                typeof(IRoleService));
         }
     }
 }

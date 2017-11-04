@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\Roles\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UserManagement\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -54,13 +59,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\UserManagement\item.xsd">
+    <None Include="Connected Services\Roles\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserManagement\item1.xsd">
+    <None Include="Connected Services\Roles\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserManagement\item2.xsd">
+    <None Include="Connected Services\Roles\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Roles\RobotArm.ServicesClients.Roles.RoleDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Roles\RoleService.wsdl" />
+    <None Include="Connected Services\UserManagement\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserManagement\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserManagement\item32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\UserManagement\RobotArm.ServicesClients.UserManagement.RoleDto.datasource">
@@ -69,13 +87,11 @@
     <None Include="Connected Services\UserManagement\RobotArm.ServicesClients.UserManagement.UserDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\UserManagement\UserService.wsdl" />
+    <None Include="Connected Services\UserManagement\UserService1.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Roles\" />
     <WCFMetadataStorage Include="Connected Services\UserManagement\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\UserManagement\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\UserManagement\configuration91.svcinfo" />
@@ -85,6 +101,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\UserManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserManagement\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Roles\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Roles\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Roles\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Roles\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

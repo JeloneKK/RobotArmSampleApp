@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
 
@@ -37,9 +38,13 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(s => new PasswordHasher().HashPassword(s.Password)))
                 .ForMember(dest => dest.Roles, opt => opt.Ignore());
 
-            CreateMap<ApplicationUser, UserDto>()
-                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.FirstName))
-                .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
+            CreateMap<IdentityRole, RoleDto>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(s => s.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(s => s.Name));
+
+            CreateMap<RoleDto, IdentityRole>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(s => s.RoleId))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(s => s.Name));
         }
     }
 }

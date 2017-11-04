@@ -13,6 +13,11 @@ namespace RobotArm.WebApp.Mappings
         {
             CreateMap<UserDto, UserViewModel>();
             CreateMap<UserViewModel, UserDto>();
+
+            CreateMap<RoleDto, RoleViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(s => s.RoleId));
+            CreateMap<RoleViewModel, RoleDto>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(s => s.Id));
         }
     }
 }

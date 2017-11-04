@@ -32,7 +32,7 @@ namespace RobotArm.UserManagementServices.UserServices
             _userBusinessLogic = userBusinessLogic;
         }
 
-        public UserDto GetUser(int userId)
+        public UserDto GetUser(string userId)
         {
             ApplicationUser user;
 
@@ -78,9 +78,9 @@ namespace RobotArm.UserManagementServices.UserServices
             return usersDtos;
         }
 
-        public List<RoleDto> GetUserRoles(int userId)
+        public List<RoleDto> GetUserRoles(string userId)
         {
-            List<IdentityUserRole> roles;
+            List<IdentityRole> roles;
 
             try
             {

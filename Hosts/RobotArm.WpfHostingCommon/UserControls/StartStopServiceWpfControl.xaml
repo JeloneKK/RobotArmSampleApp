@@ -14,8 +14,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button IsEnabled="{Binding StartEnable}" Command="{Binding StartServiceCommand}" Margin="10,5" Grid.Column="0" Content="Start Service"></Button>
-            <Button IsEnabled="{Binding StopEnable}" Command="{Binding StopServiceCommand}" Margin="10,5"  Grid.Column="1" Content="Stop Service"></Button>
+            <Button IsEnabled="{Binding StartEnable}" Command="{Binding StartServiceCommand}" Margin="10,5" Grid.Column="0" Content="Start Services"></Button>
+            <Button IsEnabled="{Binding StopEnable}" Command="{Binding StopServiceCommand}" Margin="10,5"  Grid.Column="1" Content="Stop Services"></Button>
         </Grid>
 
         <TextBlock Margin="10, 5" Text="Info: "/>
