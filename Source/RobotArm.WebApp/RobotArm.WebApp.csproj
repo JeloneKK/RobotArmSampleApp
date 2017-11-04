@@ -527,6 +527,7 @@
     <Compile Include="Mappings\UserManagementMapping.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Interfaces\IAccountModel.cs" />
+    <Compile Include="Models\Interfaces\IUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
@@ -584,10 +585,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Error\CustomError.cshtml" />
+    <Content Include="Views\User\Get.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
