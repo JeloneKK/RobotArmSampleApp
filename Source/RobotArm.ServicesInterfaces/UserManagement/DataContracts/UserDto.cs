@@ -7,7 +7,7 @@ namespace RobotArm.ServicesContracts.UserManagement.DataContracts
     public class UserDto
     {
         [DataMember]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         [DataMember]
         public string Email { get; set; }
         [DataMember]
@@ -18,5 +18,7 @@ namespace RobotArm.ServicesContracts.UserManagement.DataContracts
         public string Password { get; set; }
         [DataMember]
         public DateTime CreationTime { get; set; }
+        [DataMember]
+        public RoleDto[] Roles { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace RobotArm.BusinessLogicInterfaces.UserManagement
 {
     public interface IUserBusinessLogic
     {
-        ApplicationUser GetUser(int userId);
+        ApplicationUser GetUser(string userId);
         List<ApplicationUser> GetAllUsers();
-        List<IdentityUserRole> GetUserRoles(int userId);
+        List<IdentityRole> GetUserRoles(string userId);
         void CreateUser(ApplicationUser user);
     }
 }

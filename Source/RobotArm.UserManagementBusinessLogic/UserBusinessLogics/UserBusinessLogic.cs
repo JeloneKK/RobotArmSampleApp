@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.BusinessLogicInterfaces.UserManagement;
-using RobotArm.Common.Patterns.DbContext;
 using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
-using RobotArm.Common.Patterns.DbContext.UnitOfWork;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.RepositoriesInterfaces.UserManagement;
 
@@ -14,21 +11,19 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
 {
     public class UserBusinessLogic : UserManagementBusinessLogicBase, IUserBusinessLogic
     {
-        private readonly IDbContextScopeFactory _dbContextScopeFactory;
         private readonly IUserRepository _userRepository;
-        private IRoleRepository _roleRepository;
+        private readonly IRoleRepository _roleRepository;
 
         public UserBusinessLogic(IDbContextScopeFactory dbContextScopeFactory, IUserRepository userRepository, IRoleRepository roleRepository) 
             : base(dbContextScopeFactory)
         {
-            _dbContextScopeFactory = dbContextScopeFactory;
             _userRepository = userRepository;
             _roleRepository = roleRepository;
         }
 
-        public ApplicationUser GetUser(int userId)
+        public ApplicationUser GetUser(string userId)
         {
-            using (_dbContextScopeFactory.CreateReadOnly())
+            using (DbContextScopeFactory.CreateReadOnly())
             {
                 var user = _userRepository.GetById(userId);
 
@@ -43,7 +38,7 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
 
         public List<ApplicationUser> GetAllUsers()
         {
-            using (_dbContextScopeFactory.CreateReadOnly())
+            using (DbContextScopeFactory.CreateReadOnly())
             {
                 var users = _userRepository.GetAll();
 
@@ -51,19 +46,21 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
             }
         }
 
-        public List<IdentityUserRole> GetUserRoles(int userId)
+        public List<IdentityRole> GetUserRoles(string userId)
         {
-            using (_dbContextScopeFactory.CreateReadOnly())
+            using (DbContextScopeFactory.CreateReadOnly())
             {
-                ApplicationUser user = this.GetUser(userId);
+                IEnumerable<string> rolesIds = this.GetUser(userId).Roles.Select(r => r.RoleId);
 
-                return user.Roles.ToList();
+                IEnumerable<IdentityRole> identityRoles = _roleRepository.GetMany(r => rolesIds.Contains(r.Id));
+
+                return identityRoles.ToList();
             }
         }
 
         public void CreateUser(ApplicationUser user)
         {
-            using (var dbContextScope = _dbContextScopeFactory.Create())
+            using (var dbContextScope = DbContextScopeFactory.Create())
             {
                 _userRepository.Add(user);
                 dbContextScope.SaveChanges();

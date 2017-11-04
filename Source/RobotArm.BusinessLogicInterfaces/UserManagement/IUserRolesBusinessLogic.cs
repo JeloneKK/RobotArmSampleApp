@@ -1,7 +1,11 @@
-﻿namespace RobotArm.BusinessLogicInterfaces.UserManagement
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace RobotArm.BusinessLogicInterfaces.UserManagement
 {
     public interface IUserRolesBusinessLogic
     {
-        
+        List<IdentityRole> GetAllRoles();
+        IdentityRole GetRole(string roleId);
     }
 }

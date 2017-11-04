@@ -6,7 +6,7 @@ namespace RobotArm.ServicesContracts.UserManagement.DataContracts
     public class RoleDto
     {
         [DataMember]
-        public int RoleId { get; set; }
+        public string RoleId { get; set; }
         [DataMember]
         public string Name { get; set; }
     }

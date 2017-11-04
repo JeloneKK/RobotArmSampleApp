@@ -40,7 +40,7 @@ namespace RobotArm.CommonRepositories
         protected IDbSet<TEntity> DbSet => DbContext.Set<TEntity>();
 
 
-        public virtual TEntity GetById(int id)
+        public virtual TEntity GetById(string id)
         {
             return DbSet.Find(id);
         }

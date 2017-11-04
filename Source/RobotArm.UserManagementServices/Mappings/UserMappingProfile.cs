@@ -26,7 +26,7 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
-                .ForMember(dest => dest.UserId, opt => opt.Ignore())
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(s => s.Id))
                 .ForMember(dest => dest.Password, opt => opt.Ignore())
                 .ForMember(dest => dest.CreationTime, opt => opt.Ignore());
 
@@ -36,6 +36,10 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(s => new PasswordHasher().HashPassword(s.Password)))
                 .ForMember(dest => dest.Roles, opt => opt.Ignore());
+
+            CreateMap<ApplicationUser, UserDto>()
+                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.FirstName))
+                .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
         }
     }
 }
