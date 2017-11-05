@@ -3,12 +3,13 @@ using System.Net;
 using System.ServiceModel;
 using System.Web;
 using AutoMapper;
-using RobotArm.ServicesClients.Roles;
 using RobotArm.ServicesClients.UserManagement;
+using RobotArm.ServicesClients.UserManagement.Role;
+using RobotArm.ServicesClients.UserManagement.User;
+using RobotArm.ServicesContracts.UserManagement.DataContracts;
 using RobotArm.ServicesContracts.UserManagement.FaultContracts;
 using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
-using RoleDto = RobotArm.ServicesClients.UserManagement.RoleDto;
 
 namespace RobotArm.WebApp.Models
 {
@@ -111,6 +112,19 @@ namespace RobotArm.WebApp.Models
             catch (FaultException ex)
             {
                 throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+            }
+        }
+
+        public RoleViewModel[] GetAllRoles()
+        {
+            try
+            {
+                RoleDto[] roles = _roleService.GetAllRoles();
+                return Mapper.Map<RoleViewModel[]>(roles);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
     }

@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\Roles\Reference.cs">
+    <Compile Include="Connected Services\UserManagement.Role\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\UserManagement\Reference.cs">
+    <Compile Include="Connected Services\UserManagement.User\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -59,69 +59,68 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\Roles\item.xsd">
+    <None Include="Connected Services\UserManagement.Role\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Roles\item1.xsd">
+    <None Include="Connected Services\UserManagement.Role\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Roles\item2.xsd">
+    <None Include="Connected Services\UserManagement.Role\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Roles\RobotArm.ServicesClients.Roles.RoleDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Roles\RoleService.wsdl" />
-    <None Include="Connected Services\UserManagement\item3.xsd">
+    <None Include="Connected Services\UserManagement.Role\RoleService.wsdl" />
+    <None Include="Connected Services\UserManagement.User\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserManagement\item31.xsd">
+    <None Include="Connected Services\UserManagement.User\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserManagement\item32.xsd">
+    <None Include="Connected Services\UserManagement.User\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\UserManagement\RobotArm.ServicesClients.UserManagement.RoleDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\UserManagement\RobotArm.ServicesClients.UserManagement.UserDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\UserManagement\UserService1.wsdl" />
+    <None Include="Connected Services\UserManagement.User\UserService.wsdl" />
+    <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto.datasource" />
+    <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.UserDto.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Roles\" />
-    <WCFMetadataStorage Include="Connected Services\UserManagement\" />
+    <WCFMetadataStorage Include="Connected Services\UserManagement.Role\" />
+    <WCFMetadataStorage Include="Connected Services\UserManagement.User\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\UserManagement\configuration91.svcinfo" />
+    <None Include="Connected Services\UserManagement.User\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\UserManagement\configuration.svcinfo" />
+    <None Include="Connected Services\UserManagement.User\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\UserManagement\Reference.svcmap">
+    <None Include="Connected Services\UserManagement.User\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserManagement.User\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\UserManagement\item1.disco" />
+    <None Include="Connected Services\UserManagement.Role\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Roles\item.disco" />
+    <None Include="Connected Services\UserManagement.Role\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Roles\configuration91.svcinfo" />
+    <None Include="Connected Services\UserManagement.Role\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Roles\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Roles\Reference.svcmap">
+    <None Include="Connected Services\UserManagement.Role\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RobotArm.ServicesInterfaces\RobotArm.ServicesContracts.csproj">
+      <Project>{743a14bf-1e5f-46e0-80bd-52a49b57a7c5}</Project>
+      <Name>RobotArm.ServicesContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

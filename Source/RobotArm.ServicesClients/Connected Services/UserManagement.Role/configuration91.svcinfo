@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="LO/GGeucxnnRo6KboyI2NevMo+w=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="JBKyxq/DF7Wq7iWTYpWY+bZ837o=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IUserService">
+    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IRoleService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IUserService</serializedValue>
+          <serializedValue>NetTcpBinding_IRoleService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IUserService" contract="UserManagement.IUserService" bindingType="netTcpBinding" address="net.tcp://localhost:8001/UserService" bindingConfiguration="NetTcpBinding_IUserService">
+    <endpoint name="NetTcpBinding_IRoleService" contract="UserManagement.Role.IRoleService" bindingType="netTcpBinding" address="net.tcp://localhost:8002/RoleService" bindingConfiguration="NetTcpBinding_IRoleService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8001/UserService</serializedValue>
+          <serializedValue>net.tcp://localhost:8002/RoleService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -133,10 +133,10 @@
           <serializedValue>netTcpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IUserService</serializedValue>
+          <serializedValue>NetTcpBinding_IRoleService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UserManagement.IUserService</serializedValue>
+          <serializedValue>UserManagement.Role.IRoleService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -196,7 +196,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IUserService</serializedValue>
+          <serializedValue>NetTcpBinding_IRoleService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

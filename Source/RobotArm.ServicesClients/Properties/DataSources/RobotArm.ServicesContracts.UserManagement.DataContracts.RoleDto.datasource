@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="RoleDto" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>RobotArm.ServicesClients.UserManagement.RoleDto, Connected Services.UserManagement.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto, RobotArm.ServicesContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

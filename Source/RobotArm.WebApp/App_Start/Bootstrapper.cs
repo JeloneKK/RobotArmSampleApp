@@ -12,6 +12,8 @@ using RobotArm.Data.DbContexts.UserManagement;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.RepositoriesInterfaces.UserManagement;
 using RobotArm.ServicesClients.UserManagement;
+using RobotArm.ServicesClients.UserManagement.Role;
+using RobotArm.ServicesClients.UserManagement.User;
 using RobotArm.ServicesContracts.UserManagement.ServiceContracts;
 using RobotArm.UserManagementRepositories.UserRepositories;
 using RobotArm.UserManagementServices.UserServices;
@@ -36,7 +38,7 @@ namespace RobotArm.WebApp
             builder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context: new UserManagementDbContext())))
                 .As<UserManager<ApplicationUser>>().InstancePerRequest();
 
-            builder.RegisterAssemblyTypes(typeof(UserServiceClient).Assembly)
+            builder.RegisterAssemblyTypes(typeof(RoleServiceClient).Assembly)
                 .Where(t => t.Name.EndsWith("ServiceClient"))
                 .AsImplementedInterfaces()
                 .InstancePerRequest();

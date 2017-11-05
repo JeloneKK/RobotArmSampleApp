@@ -10,5 +10,6 @@ namespace RobotArm.WebApp.Models.Interfaces
         void Update(UserDetailsViewModel user);
         void Create(UserViewModel user);
         void Delete(string userId);
+        RoleViewModel[] GetAllRoles();
     }
 }

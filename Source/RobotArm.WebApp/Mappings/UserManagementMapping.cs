@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.ServicesClients.UserManagement;
+using RobotArm.ServicesContracts.UserManagement.DataContracts;
 using RobotArm.WebApp.ViewModels;
 
 namespace RobotArm.WebApp.Mappings

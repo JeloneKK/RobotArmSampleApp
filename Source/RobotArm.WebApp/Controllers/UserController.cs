@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 using RobotArm.WebApp.Models.Interfaces;
@@ -61,6 +62,13 @@ namespace RobotArm.WebApp.Controllers
         public void Delete(string userId)
         {
             _userModel.Delete(userId);
+        }
+
+        // TODO: Move to WebAPI ?
+        public JsonResult GetAllRoles()
+        {
+            RoleViewModel[] roles = _userModel.GetAllRoles();
+            return this.Json(roles, JsonRequestBehavior.AllowGet);
         }
     }
 }
