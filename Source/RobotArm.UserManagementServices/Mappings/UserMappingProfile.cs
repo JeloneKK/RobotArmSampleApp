@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.Data.Entities.UserManagement;
@@ -29,6 +30,7 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(s => s.Id))
                 .ForMember(dest => dest.Password, opt => opt.Ignore())
+                .ForMember(dest => dest.Roles, opt => opt.Ignore())
                 .ForMember(dest => dest.CreationTime, opt => opt.Ignore());
 
             CreateMap<UserDto, ApplicationUser>()
@@ -36,7 +38,7 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(s => new PasswordHasher().HashPassword(s.Password)))
-                .ForMember(dest => dest.Roles, opt => opt.Ignore());
+                .ForMember(dest => dest.Roles, opt => opt.MapFrom(s => s.Roles.Select(r => new IdentityUserRole { UserId = s.UserId, RoleId = r.RoleId })));
 
             CreateMap<IdentityRole, RoleDto>()
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(s => s.Id))

@@ -244,6 +244,18 @@ namespace RobotArm.ServicesClients.UserManagement {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/CreateUser", ReplyAction="http://tempuri.org/IUserService/CreateUserResponse")]
         System.Threading.Tasks.Task CreateUserAsync(RobotArm.ServicesClients.UserManagement.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
+        void UpdateUser(RobotArm.ServicesClients.UserManagement.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
+        System.Threading.Tasks.Task UpdateUserAsync(RobotArm.ServicesClients.UserManagement.UserDto user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
+        void DeleteUser(string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
+        System.Threading.Tasks.Task DeleteUserAsync(string userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -303,6 +315,22 @@ namespace RobotArm.ServicesClients.UserManagement {
         
         public System.Threading.Tasks.Task CreateUserAsync(RobotArm.ServicesClients.UserManagement.UserDto user) {
             return base.Channel.CreateUserAsync(user);
+        }
+        
+        public void UpdateUser(RobotArm.ServicesClients.UserManagement.UserDto user) {
+            base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserAsync(RobotArm.ServicesClients.UserManagement.UserDto user) {
+            return base.Channel.UpdateUserAsync(user);
+        }
+        
+        public void DeleteUser(string userId) {
+            base.Channel.DeleteUser(userId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUserAsync(string userId) {
+            return base.Channel.DeleteUserAsync(userId);
         }
     }
 }

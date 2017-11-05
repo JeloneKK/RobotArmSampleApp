@@ -1,21 +1,26 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using System.ServiceModel;
 using System.Web;
 using AutoMapper;
+using RobotArm.ServicesClients.Roles;
 using RobotArm.ServicesClients.UserManagement;
 using RobotArm.ServicesContracts.UserManagement.FaultContracts;
 using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
+using RoleDto = RobotArm.ServicesClients.UserManagement.RoleDto;
 
 namespace RobotArm.WebApp.Models
 {
     public class UserModel : IUserModel
     {
         private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
 
-        public UserModel(IUserService userService)
+        public UserModel(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
+            _roleService = roleService;
         }
 
         public UserViewModel[] Get()
@@ -27,7 +32,7 @@ namespace RobotArm.WebApp.Models
             }
             catch (FaultException ex)
             {
-                throw new HttpException((int) HttpStatusCode.InternalServerError, ex.Message);
+                throw new HttpException((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -44,23 +49,69 @@ namespace RobotArm.WebApp.Models
             }
             catch (FaultException ex)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting users", ex);
+                throw new HttpException((int)HttpStatusCode.InternalServerError, $"Error occured while getting user {userId}", ex);
             }
         }
 
-        public void Update(UserViewModel user)
+        public UserDetailsViewModel GetDetails(string userId)
         {
-            throw new System.NotImplementedException();
+            UserViewModel user = this.Get(userId);
+
+            try
+            {
+                RoleDto[] userRoles = _userService.GetUserRoles(userId);
+                List<RoleViewModel> roles = Mapper.Map<List<RoleViewModel>>(userRoles);
+
+                return new UserDetailsViewModel
+                {
+                    User = user,
+                    Roles = roles
+                };
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+            }
+        }
+
+        public void Update(UserDetailsViewModel user)
+        {
+            try
+            {
+                UserDto userDto = Mapper.Map<UserDto>(user);
+
+                _userService.UpdateUser(userDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+            }
         }
 
         public void Create(UserViewModel user)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                UserDto userDto = Mapper.Map<UserDto>(user);
+
+                _userService.CreateUser(userDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+            }
         }
 
         public void Delete(string userId)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _userService.DeleteUser(userId);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+            }
         }
     }
 }

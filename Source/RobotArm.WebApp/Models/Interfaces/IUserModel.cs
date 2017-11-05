@@ -6,7 +6,8 @@ namespace RobotArm.WebApp.Models.Interfaces
     {
         UserViewModel[] Get();
         UserViewModel Get(string userId);
-        void Update(UserViewModel user);
+        UserDetailsViewModel GetDetails(string userId);
+        void Update(UserDetailsViewModel user);
         void Create(UserViewModel user);
         void Delete(string userId);
     }

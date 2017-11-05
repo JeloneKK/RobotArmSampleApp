@@ -11,18 +11,6 @@ namespace RobotArm.WebApp.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private IUserService _userService;
-
-        //public HomeController(IUserService userService)
-        //{
-        //    _userService = userService;
-        //}
-
-        public HomeController()
-        {
-            
-        }
-
         public ActionResult Index()
         {
             return View();

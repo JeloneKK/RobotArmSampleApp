@@ -12,5 +12,7 @@ namespace RobotArm.BusinessLogicInterfaces.UserManagement
         List<ApplicationUser> GetAllUsers();
         List<IdentityRole> GetUserRoles(string userId);
         void CreateUser(ApplicationUser user);
+        void UpdateUser(ApplicationUser user);
+        void DeleteUser(string userId);
     }
 }

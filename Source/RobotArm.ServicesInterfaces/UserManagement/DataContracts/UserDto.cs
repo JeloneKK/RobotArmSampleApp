@@ -17,8 +17,8 @@ namespace RobotArm.ServicesContracts.UserManagement.DataContracts
         [DataMember]
         public string Password { get; set; }
         [DataMember]
-        public DateTime CreationTime { get; set; }
-        [DataMember]
         public RoleDto[] Roles { get; set; }
+        [DataMember]
+        public DateTime CreationTime { get; set; }
     }
 }

@@ -10,10 +10,14 @@ namespace RobotArm.ServicesContracts.UserManagement.ServiceContracts
         [OperationContract]
         UserDto GetUser(string userId);
         [OperationContract]
-        List<UserDto> GetAllUsers();
+        UserDto[] GetAllUsers();
         [OperationContract]
-        List<RoleDto> GetUserRoles(string userId);
+        RoleDto[] GetUserRoles(string userId);
         [OperationContract]
         void CreateUser(UserDto user);
+        [OperationContract]
+        void UpdateUser(UserDto user);
+        [OperationContract]
+        void DeleteUser(string userId);
     }
 }

@@ -66,5 +66,23 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
                 dbContextScope.SaveChanges();
             }
         }
+
+        public void UpdateUser(ApplicationUser user)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _userRepository.Update(user);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void DeleteUser(string userId)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _userRepository.Delete(u => u.Id == userId);
+                dbContextScope.SaveChanges();
+            }
+        }
     }
 }

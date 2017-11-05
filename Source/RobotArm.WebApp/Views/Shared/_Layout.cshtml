@@ -25,7 +25,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Users", "Get", "User")</li>
+                        <li>@Html.ActionLink("Users", "Index", "User")</li>
                     }
                     @if (User.Identity.IsAuthenticated)
                     {

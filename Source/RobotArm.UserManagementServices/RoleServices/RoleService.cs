@@ -6,13 +6,16 @@ using AutoMapper;
 using Microsoft.AspNet.Identity.EntityFramework;
 using RobotArm.BusinessLogicInterfaces.UserManagement;
 using RobotArm.Common.Logging.Helpers;
+using RobotArm.CommonServices.ErrorHandling;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
 using RobotArm.ServicesContracts.UserManagement.FaultContracts;
 using RobotArm.ServicesContracts.UserManagement.ServiceContracts;
+using RobotArm.UserManagementServices.ErrorHandling;
 
 namespace RobotArm.UserManagementServices.RoleServices
 {
+    [GlobalErrorHandlerBehaviour(typeof(UserManagementGlobalErrorHandler))]
     public class RoleService : UserManagementServiceBase, IRoleService
     {
         private readonly IUserRolesBusinessLogic _rolesBusinessLogic;

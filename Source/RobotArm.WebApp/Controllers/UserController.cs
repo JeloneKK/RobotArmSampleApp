@@ -19,7 +19,7 @@ namespace RobotArm.WebApp.Controllers
             _userModel = userModel;
         }
        
-        public ActionResult Get()
+        public ActionResult Index()
         {
             UserViewModel[] userViewModels = _userModel.Get();
             return View(userViewModels);
@@ -27,18 +27,18 @@ namespace RobotArm.WebApp.Controllers
 
         public ActionResult Details(string userId)
         {
-            UserViewModel userViewModel = _userModel.Get(userId);
-            return View(userViewModel);
+            UserDetailsViewModel userDetails = _userModel.GetDetails(userId);
+            return View(userDetails);
         }
 
         public ActionResult Edit(string userId)
         {
-            UserViewModel userViewModel = _userModel.Get(userId);
-            return View(userViewModel);
+            UserDetailsViewModel userDetails = _userModel.GetDetails(userId);
+            return View(userDetails);
         }
 
         [HttpPost]
-        public ActionResult Edit(UserViewModel user)
+        public ActionResult Edit(UserDetailsViewModel user)
         {
             _userModel.Update(user);
             return View("Details", user);

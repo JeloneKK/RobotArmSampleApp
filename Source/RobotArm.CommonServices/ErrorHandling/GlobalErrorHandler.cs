@@ -14,7 +14,7 @@ namespace RobotArm.CommonServices.ErrorHandling
                 return;
             }
                 
-            FaultException faultException = new FaultException("A general service error occured" + error.Message);
+            FaultException faultException = new FaultException("A general service error occured: " + error.Message);
             MessageFault messageFault = faultException.CreateMessageFault();
             fault = Message.CreateMessage(version, messageFault, null);
         }

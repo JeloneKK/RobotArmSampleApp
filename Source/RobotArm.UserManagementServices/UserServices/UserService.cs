@@ -58,7 +58,7 @@ namespace RobotArm.UserManagementServices.UserServices
             return userDto;
         }
 
-        public List<UserDto> GetAllUsers()
+        public UserDto[] GetAllUsers()
         {
             List<ApplicationUser> users;
 
@@ -73,12 +73,12 @@ namespace RobotArm.UserManagementServices.UserServices
                 throw new FaultException();
             }
 
-            List<UserDto> usersDtos = Mapper.Map<List<UserDto>>(users);
+            UserDto[] usersDtos = Mapper.Map<UserDto[]>(users);
 
             return usersDtos;
         }
 
-        public List<RoleDto> GetUserRoles(string userId)
+        public RoleDto[] GetUserRoles(string userId)
         {
             List<IdentityRole> roles;
 
@@ -99,7 +99,7 @@ namespace RobotArm.UserManagementServices.UserServices
                 throw new FaultException<EntityNotFoundFault>(fault);
             }
 
-            List<RoleDto> rolesDto = Mapper.Map<List<RoleDto>>(roles);
+            RoleDto[] rolesDto = Mapper.Map<RoleDto[]>(roles);
 
             return rolesDto;
         }
@@ -120,6 +120,29 @@ namespace RobotArm.UserManagementServices.UserServices
             ApplicationUser userEntity = Mapper.Map<ApplicationUser>(user);
 
             _userBusinessLogic.CreateUser(userEntity);
+        }
+
+        public void UpdateUser(UserDto user)
+        {
+            if (user == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(user)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            ApplicationUser userEntity = Mapper.Map<ApplicationUser>(user);
+
+            _userBusinessLogic.UpdateUser(userEntity);
+        }
+
+        public void DeleteUser(string userId)
+        {
+            _userBusinessLogic.DeleteUser(userId);
         }
     }
 }
