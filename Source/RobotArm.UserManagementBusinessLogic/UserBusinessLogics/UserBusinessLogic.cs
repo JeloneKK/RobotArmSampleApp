@@ -60,6 +60,8 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
 
         public void CreateUser(ApplicationUser user)
         {
+            user.SecurityStamp = Guid.NewGuid().ToString("D");
+
             using (var dbContextScope = DbContextScopeFactory.Create())
             {
                 _userRepository.Add(user);
@@ -69,6 +71,8 @@ namespace RobotArm.UserManagementBusinessLogic.UserBusinessLogics
 
         public void UpdateUser(ApplicationUser user)
         {
+            user.SecurityStamp = Guid.NewGuid().ToString("D");
+
             using (var dbContextScope = DbContextScopeFactory.Create())
             {
                 _userRepository.Update(user);

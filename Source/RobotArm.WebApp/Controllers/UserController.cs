@@ -34,28 +34,42 @@ namespace RobotArm.WebApp.Controllers
 
         public ActionResult Edit(string userId)
         {
-            UserDetailsViewModel userDetails = _userModel.GetDetails(userId);
-            return View(userDetails);
+            var editUserViewModel = new CreateEditUserViewModel();
+
+            editUserViewModel.UserDetails = _userModel.GetDetails(userId);
+            editUserViewModel.AllowedRoles = _userModel.GetAllRoles().ToList();
+
+            return View(editUserViewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(UserDetailsViewModel user)
+        public ActionResult Edit(CreateEditUserViewModel user)
         {
-            _userModel.Update(user);
-            return View("Details", user);
+            user.UserDetails.Roles = _userModel.GetRoles(user.SelectedRoles).ToList();
+            _userModel.Update(user.UserDetails);
+            return View("Details", user.UserDetails);
         }
 
         public ActionResult Create()
         {
-            var userViewModel = new UserViewModel();
-            return View(userViewModel);
+            var createUserViewModel = new CreateEditUserViewModel
+            {
+                UserDetails = new UserDetailsViewModel
+                {
+                    User = new UserViewModel()
+                },
+                AllowedRoles = _userModel.GetAllRoles().ToList()
+            };
+
+            return View(createUserViewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(UserViewModel user)
+        public ActionResult Create(CreateEditUserViewModel user)
         {
-            _userModel.Create(user);
-            return View("Details", user);
+            user.UserDetails.Roles = _userModel.GetRoles(user.SelectedRoles).ToList();
+            _userModel.Create(user.UserDetails);
+            return View("Details", user.UserDetails);
         }
 
         [HttpPost]

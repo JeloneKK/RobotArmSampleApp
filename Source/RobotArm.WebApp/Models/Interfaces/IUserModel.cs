@@ -1,4 +1,5 @@
-﻿using RobotArm.WebApp.ViewModels;
+﻿using System.Collections.Generic;
+using RobotArm.WebApp.ViewModels;
 
 namespace RobotArm.WebApp.Models.Interfaces
 {
@@ -8,8 +9,9 @@ namespace RobotArm.WebApp.Models.Interfaces
         UserViewModel Get(string userId);
         UserDetailsViewModel GetDetails(string userId);
         void Update(UserDetailsViewModel user);
-        void Create(UserViewModel user);
+        void Create(UserDetailsViewModel user);
         void Delete(string userId);
         RoleViewModel[] GetAllRoles();
+        RoleViewModel[] GetRoles(IEnumerable<string> rolesIds);
     }
 }

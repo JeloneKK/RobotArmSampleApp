@@ -11,5 +11,9 @@ namespace RobotArm.ServicesContracts.UserManagement.ServiceContracts
         RoleDto GetRole(string roleId);
         [OperationContract]
         List<RoleDto> GetAllRoles();
+        [OperationContract]
+        void CreateRole(RoleDto role);
+        [OperationContract]
+        void DeleteRole(string roleId);
     }
 }

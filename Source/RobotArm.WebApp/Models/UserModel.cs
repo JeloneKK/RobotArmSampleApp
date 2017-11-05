@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.ServiceModel;
 using System.Web;
@@ -89,7 +90,7 @@ namespace RobotArm.WebApp.Models
             }
         }
 
-        public void Create(UserViewModel user)
+        public void Create(UserDetailsViewModel user)
         {
             try
             {
@@ -126,6 +127,11 @@ namespace RobotArm.WebApp.Models
             {
                 throw new HttpException((int)HttpStatusCode.InternalServerError, ex.Message);
             }
+        }
+
+        public RoleViewModel[] GetRoles(IEnumerable<string> rolesIds)
+        {
+            return this.GetAllRoles().Where(r => rolesIds.Contains(r.Id)).ToArray();
         }
     }
 }

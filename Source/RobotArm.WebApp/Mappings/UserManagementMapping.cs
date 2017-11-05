@@ -24,6 +24,7 @@ namespace RobotArm.WebApp.Mappings
 
             CreateMap<UserDetailsViewModel, UserDto>()
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(s => s.User.Id))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(s => s.User.UserName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.User.Email))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.User.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.User.LastName))

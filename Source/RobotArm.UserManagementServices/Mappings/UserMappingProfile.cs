@@ -24,7 +24,13 @@ namespace RobotArm.UserManagementServices.Mappings
 
             CreateMap<RoleDto, Role>(MemberList.Source);
 
+            CreateMap<ApplicationUser, ApplicationUser>();
+            CreateMap<IdentityUserLogin, IdentityUserLogin>();
+            CreateMap<IdentityUserRole, IdentityUserRole>();
+            CreateMap<IdentityUserClaim, IdentityUserClaim>();
+
             CreateMap<ApplicationUser, UserDto>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(s => s.UserName))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
@@ -34,9 +40,16 @@ namespace RobotArm.UserManagementServices.Mappings
                 .ForMember(dest => dest.CreationTime, opt => opt.Ignore());
 
             CreateMap<UserDto, ApplicationUser>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(s => s.UserId))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(s => s.UserName))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(s => s.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(s => s.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(s => s.Email))
+                .ForMember(dest => dest.EmailConfirmed, opt => opt.MapFrom(s => false))
+                .ForMember(dest => dest.PhoneNumberConfirmed, opt => opt.MapFrom(s => false))
+                .ForMember(dest => dest.TwoFactorEnabled, opt => opt.MapFrom(s => false))
+                .ForMember(dest => dest.LockoutEnabled, opt => opt.MapFrom(s => false))
+                .ForMember(dest => dest.AccessFailedCount, opt => opt.MapFrom(s => false))
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(s => new PasswordHasher().HashPassword(s.Password)))
                 .ForMember(dest => dest.Roles, opt => opt.MapFrom(s => s.Roles.Select(r => new IdentityUserRole { UserId = s.UserId, RoleId = r.RoleId })));
 
