@@ -122,6 +122,10 @@
       <Project>{F38436E9-6E96-4E83-9F29-AF9FB5FE923C}</Project>
       <Name>RobotArm.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Source\RobotArm.Data\RobotArm.Data.csproj">
+      <Project>{7BBB03CF-D2D6-46F6-9CE2-B13B34884D50}</Project>
+      <Name>RobotArm.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Source\RobotArm.RobotArmControlBusinessLogic\RobotArm.RobotArmControlBusinessLogic.csproj">
       <Project>{F5CCA24C-AFE9-4FEF-8147-2C1D35D3AF9D}</Project>
       <Name>RobotArm.RobotArmControlBusinessLogic</Name>

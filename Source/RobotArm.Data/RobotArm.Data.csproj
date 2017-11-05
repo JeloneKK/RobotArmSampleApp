@@ -75,7 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DefaultDateTimeValueAttribute.cs" />
+    <Compile Include="Attributes\SqlDefaultValueAttribute.cs" />
+    <Compile Include="Configurations\RobotArmControl\CartesianPointConfiguration.cs" />
+    <Compile Include="Configurations\RobotArmControl\JointPointConfiguration.cs" />
+    <Compile Include="Configurations\RobotArmControl\ProgramStepConfiguration.cs" />
     <Compile Include="Configurations\RobotArmControl\RobotProgramConfiguration.cs" />
+    <Compile Include="Configurations\RobotArmControl\StepDefinitionConfiguration.cs" />
     <Compile Include="Configurations\UserManagement\IdentityUserLoginConfiguration.cs" />
     <Compile Include="Configurations\UserManagement\IdentityUserRoleConfiguration.cs" />
     <Compile Include="Configurations\UserManagement\ApplicationUserConfiguration.cs" />
@@ -89,7 +95,9 @@
     <Compile Include="Entities\UserManagement\ApplicationUser.cs" />
     <Compile Include="Entities\UserManagement\Role.cs" />
     <Compile Include="Entities\UserManagement\User.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeedData\RobotArmControl\RobotArmControlSeedData.cs" />
     <Compile Include="SeedData\UserManagement\UserManagementSeedData.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using Autofac.Integration.Wcf;
 using RobotArm.Common.Patterns.DbContext.DbContextScope;
 using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
+using RobotArm.Data.SeedData.RobotArmControl;
 using RobotArm.HostingCommon.Initializing;
 using RobotArm.RobotArmControlBusinessLogic.RobotProgramBusinessLogics;
 using RobotArm.RobotArmControlRepositories.RobotProgramRepositories;
@@ -21,6 +22,8 @@ namespace RobotArm.UserManagementServicesWpfHost
 
         public void Run()
         {
+            System.Data.Entity.Database.SetInitializer(new RobotArmControlSeedData());
+
             SetAutofacContainer();
             AutoMapperConfiguration.Configure();
         }

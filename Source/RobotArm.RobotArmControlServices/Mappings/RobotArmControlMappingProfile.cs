@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using RobotArm.Data.Entities.RobotArmControl;
 using RobotArm.ServicesContracts.RobotArmControl.DataContracts;
 
@@ -8,7 +9,11 @@ namespace RobotArm.RobotArmControlServices.Mappings
     {
         public RobotArmControlMappingProfile()
         {
-            CreateMap<RobotProgram, RobotProgramDto>().ReverseMap();
+            CreateMap<RobotProgram, RobotProgramDto>()
+                .ForMember(dest => dest.CreationDate, opt => opt.MapFrom(s => s.CreationDate ?? DateTime.MinValue));
+
+            CreateMap<RobotProgramDto, RobotProgram>()
+                .ForMember(dest => dest.CreationDate, opt => opt.Ignore());
 
             CreateMap<ProgramStep, ProgramStepDto>();
             CreateMap<ProgramStepDto, ProgramStep>()

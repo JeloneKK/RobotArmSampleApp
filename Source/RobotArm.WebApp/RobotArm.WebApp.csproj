@@ -302,11 +302,15 @@
     <Compile Include="Models\Interfaces\IRobotProgramModel.cs" />
     <Compile Include="Models\Interfaces\IRoleModel.cs" />
     <Compile Include="Models\Interfaces\IUserModel.cs" />
+    <Compile Include="Models\RobotProgramModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\RobotArmControl\CartesianPointViewModel.cs" />
+    <Compile Include="ViewModels\RobotArmControl\JointPointViewModel.cs" />
     <Compile Include="ViewModels\RobotArmControl\ProgramStepViewModel.cs" />
     <Compile Include="ViewModels\RobotArmControl\RobotProgramViewModel.cs" />
+    <Compile Include="ViewModels\RobotArmControl\StepDefinitionViewModel.cs" />
     <Compile Include="ViewModels\UserManagement\CreateEditUserViewModel.cs" />
     <Compile Include="ViewModels\UserManagement\LoginViewModel.cs" />
     <Compile Include="ViewModels\UserManagement\RoleViewModel.cs" />
@@ -366,7 +370,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LogOffPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Error\Common.cshtml" />
     <Content Include="Views\Error\CustomError.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -374,10 +378,11 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\RobotProgram\Index.cshtml" />
+    <Content Include="Views\RobotProgram\Get.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\RobotProgram\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

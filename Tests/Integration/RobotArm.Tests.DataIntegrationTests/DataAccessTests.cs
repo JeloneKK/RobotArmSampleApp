@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using RobotArm.Data.DbContexts.RobotArmControl;
 using RobotArm.Data.DbContexts.UserManagement;
+using RobotArm.Data.SeedData.RobotArmControl;
 using RobotArm.Data.SeedData.UserManagement;
 
 namespace RobotArm.Tests.DataIntegrationTests
@@ -19,6 +21,22 @@ namespace RobotArm.Tests.DataIntegrationTests
 
                 // Assert
                 Assert.NotNull(roles);
+            }
+        }
+
+        [Test]
+        public void RobotArmControlDbContextCreated_AccessDate_DataIsReceived()
+        {
+            // Arrange
+            System.Data.Entity.Database.SetInitializer(new RobotArmControlSeedData());
+
+            using (RobotArmControlDbContext userDbContext = new RobotArmControlDbContext())
+            {
+                // Act
+                var programs = userDbContext.RobotProgram.Where(e => true);
+
+                // Assert
+                Assert.NotNull(programs);
             }
         }
     }
