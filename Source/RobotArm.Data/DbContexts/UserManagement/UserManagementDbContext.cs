@@ -18,6 +18,7 @@ namespace RobotArm.Data.DbContexts.UserManagement
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ApplicationUser>().ToTable("Users");
+
             //modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration());
             //modelBuilder.Configurations.Add(new IdentityUserRoleConfiguration());
         }

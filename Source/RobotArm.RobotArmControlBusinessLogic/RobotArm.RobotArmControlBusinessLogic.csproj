@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2ABB5C87-920A-4F1F-B7F2-7D846D1EADEB}</ProjectGuid>
+    <ProjectGuid>{F5CCA24C-AFE9-4FEF-8147-2C1D35D3AF9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RobotArm.BusinessLogicInterfaces</RootNamespace>
-    <AssemblyName>RobotArm.BusinessLogicInterfaces</AssemblyName>
+    <RootNamespace>RobotArm.RobotArmControlBusinessLogic</RootNamespace>
+    <AssemblyName>RobotArm.RobotArmControlBusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,20 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,19 +41,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RobotArmControl\IRobotProgramBusinessLogic.cs" />
-    <Compile Include="UserManagement\IUserBusinessLogic.cs" />
-    <Compile Include="UserManagement\IUserRolesBusinessLogic.cs" />
+    <Compile Include="RobotArmControlBusinessLogicBase.cs" />
+    <Compile Include="RobotProgramBusinessLogics\RobotProgramBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RobotArm.BusinessLogicInterfaces\RobotArm.BusinessLogicInterfaces.csproj">
+      <Project>{2ABB5C87-920A-4F1F-B7F2-7D846D1EADEB}</Project>
+      <Name>RobotArm.BusinessLogicInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.CommonBusinessLogic\RobotArm.CommonBusinessLogic.csproj">
+      <Project>{07235B63-3AEF-47BA-93E5-902406D6802E}</Project>
+      <Name>RobotArm.CommonBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotArm.Common\RobotArm.Common.csproj">
+      <Project>{F38436E9-6E96-4E83-9F29-AF9FB5FE923C}</Project>
+      <Name>RobotArm.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RobotArm.Data\RobotArm.Data.csproj">
       <Project>{7BBB03CF-D2D6-46F6-9CE2-B13B34884D50}</Project>
       <Name>RobotArm.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\RobotArm.RepositoriesInterfaces\RobotArm.RepositoriesInterfaces.csproj">
+      <Project>{09779F70-D31B-4A7E-A81C-B4E4BA7D4730}</Project>
+      <Name>RobotArm.RepositoriesInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

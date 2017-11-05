@@ -70,5 +70,29 @@ namespace RobotArm.UserManagementServices.RoleServices
 
             return rolesDtos;
         }
+
+        public void CreateRole(RoleDto role)
+        {
+            // TODO: Move that validation to business logic layer ?
+            if (role == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(role)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            IdentityRole userEntity = Mapper.Map<IdentityRole>(role);
+
+            _rolesBusinessLogic.CreateRole(userEntity);
+        }
+
+        public void DeleteRole(string roleId)
+        {
+            _rolesBusinessLogic.DeleteRole(roleId);
+        }
     }
 }

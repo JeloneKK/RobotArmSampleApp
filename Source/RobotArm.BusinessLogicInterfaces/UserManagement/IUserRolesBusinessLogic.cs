@@ -7,5 +7,7 @@ namespace RobotArm.BusinessLogicInterfaces.UserManagement
     {
         List<IdentityRole> GetAllRoles();
         IdentityRole GetRole(string roleId);
+        void CreateRole(IdentityRole role);
+        void DeleteRole(string roleId);
     }
 }

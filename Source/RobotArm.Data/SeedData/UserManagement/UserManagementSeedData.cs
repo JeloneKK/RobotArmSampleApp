@@ -20,6 +20,7 @@ namespace RobotArm.Data.SeedData.UserManagement
 
         public static void InitializeIdentityForEf(UserManagementDbContext db)
         {
+            AddRoles(new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db)));
 
             if (!db.Users.Any())
             {
@@ -37,7 +38,7 @@ namespace RobotArm.Data.SeedData.UserManagement
                 }
 
                 // Create test users
-                var user = userManager.FindByName("admin");
+                var user = userManager.FindByName("Admin");
                 if (user == null)
                 {
                     var newUser = new ApplicationUser()
@@ -53,6 +54,26 @@ namespace RobotArm.Data.SeedData.UserManagement
                     userManager.AddToRole(newUser.Id, "Admin");
                 }
             }
+        }
+
+        private static void AddRoles(RoleManager<IdentityRole> roleManager)
+        {
+            var roles = GetRoles();
+
+            foreach (var role in roles)
+            {
+                roleManager.Create(new IdentityRole(role));
+            }
+        }
+
+        private static List<string> GetRoles()
+        {
+            return new List<string>
+            {
+                "Admin",
+                "Engineer",
+                "Custom"
+            };
         }
 
         private class UserWithRoles

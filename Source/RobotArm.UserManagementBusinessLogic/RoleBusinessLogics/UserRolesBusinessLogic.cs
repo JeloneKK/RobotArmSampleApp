@@ -45,5 +45,25 @@ namespace RobotArm.UserManagementBusinessLogic.RoleBusinessLogics
                 return role;
             }
         }
+
+        public void CreateRole(IdentityRole role)
+        {
+            role.Id = Guid.NewGuid().ToString("D");
+
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _roleRepository.Add(role);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void DeleteRole(string roleId)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _roleRepository.Delete(r => r.Id == roleId);
+                dbContextScope.SaveChanges();
+            }
+        }
     }
 }

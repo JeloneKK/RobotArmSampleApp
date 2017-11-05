@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository.cs" />
+    <Compile Include="RobotArmControl\ICartesianPointRepository.cs" />
+    <Compile Include="RobotArmControl\IJointPointRepository.cs" />
+    <Compile Include="RobotArmControl\IProgramStepRepository.cs" />
+    <Compile Include="RobotArmControl\IRobotArmControlRepository.cs" />
+    <Compile Include="RobotArmControl\IRobotProgramRepository.cs" />
+    <Compile Include="RobotArmControl\IStepDefinitionRepository.cs" />
     <Compile Include="UserManagement\IRoleRepository.cs" />
     <Compile Include="UserManagement\IUserManagementRepository.cs" />
     <Compile Include="UserManagement\IUserRepository.cs" />

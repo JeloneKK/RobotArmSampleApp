@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.ServiceModel;
@@ -95,12 +96,13 @@ namespace RobotArm.WebApp.Models
             try
             {
                 UserDto userDto = Mapper.Map<UserDto>(user);
+                userDto.UserId = Guid.NewGuid().ToString("D");
 
                 _userService.CreateUser(userDto);
             }
             catch (FaultException ex)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while creating user", ex);
             }
         }
 
@@ -112,7 +114,7 @@ namespace RobotArm.WebApp.Models
             }
             catch (FaultException ex)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while getting user details", ex);
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting user", ex);
             }
         }
 

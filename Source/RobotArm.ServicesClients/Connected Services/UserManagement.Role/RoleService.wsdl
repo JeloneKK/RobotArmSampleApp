@@ -27,6 +27,18 @@
   <wsdl:message name="IRoleService_GetAllRoles_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
   </wsdl:message>
+  <wsdl:message name="IRoleService_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="IRoleService_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoleService_DeleteRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="IRoleService_DeleteRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRoleService">
     <wsdl:operation name="GetRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IRoleService/GetRole" message="tns:IRoleService_GetRole_InputMessage" />
@@ -35,6 +47,14 @@
     <wsdl:operation name="GetAllRoles">
       <wsdl:input wsaw:Action="http://tempuri.org/IRoleService/GetAllRoles" message="tns:IRoleService_GetAllRoles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRoleService/GetAllRolesResponse" message="tns:IRoleService_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoleService/CreateRole" message="tns:IRoleService_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoleService/CreateRoleResponse" message="tns:IRoleService_CreateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoleService/DeleteRole" message="tns:IRoleService_DeleteRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoleService/DeleteRoleResponse" message="tns:IRoleService_DeleteRole_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IRoleService" type="tns:IRoleService">
@@ -51,6 +71,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllRoles">
       <soap12:operation soapAction="http://tempuri.org/IRoleService/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <soap12:operation soapAction="http://tempuri.org/IRoleService/CreateRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <soap12:operation soapAction="http://tempuri.org/IRoleService/DeleteRole" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

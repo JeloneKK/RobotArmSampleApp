@@ -6,7 +6,7 @@
 {
     @Html.AntiForgeryToken()
     <li>
-        <a href="javascript:document.forms[0].submit()">Log off</a>
+        <a href="javascript:document.forms[0].submit()">Log off (@User.Identity.Name)</a>
     </li>
 }
 

@@ -26,6 +26,18 @@ namespace RobotArm.ServicesClients.UserManagement.Role {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/GetAllRoles", ReplyAction="http://tempuri.org/IRoleService/GetAllRolesResponse")]
         System.Threading.Tasks.Task<RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto[]> GetAllRolesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/CreateRole", ReplyAction="http://tempuri.org/IRoleService/CreateRoleResponse")]
+        void CreateRole(RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/CreateRole", ReplyAction="http://tempuri.org/IRoleService/CreateRoleResponse")]
+        System.Threading.Tasks.Task CreateRoleAsync(RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/DeleteRole", ReplyAction="http://tempuri.org/IRoleService/DeleteRoleResponse")]
+        void DeleteRole(string roleId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoleService/DeleteRole", ReplyAction="http://tempuri.org/IRoleService/DeleteRoleResponse")]
+        System.Threading.Tasks.Task DeleteRoleAsync(string roleId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace RobotArm.ServicesClients.UserManagement.Role {
         
         public System.Threading.Tasks.Task<RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto[]> GetAllRolesAsync() {
             return base.Channel.GetAllRolesAsync();
+        }
+        
+        public void CreateRole(RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto role) {
+            base.Channel.CreateRole(role);
+        }
+        
+        public System.Threading.Tasks.Task CreateRoleAsync(RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto role) {
+            return base.Channel.CreateRoleAsync(role);
+        }
+        
+        public void DeleteRole(string roleId) {
+            base.Channel.DeleteRole(roleId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteRoleAsync(string roleId) {
+            return base.Channel.DeleteRoleAsync(roleId);
         }
     }
 }

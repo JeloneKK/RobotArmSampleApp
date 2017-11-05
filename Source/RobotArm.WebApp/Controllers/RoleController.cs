@@ -8,6 +8,7 @@ using RobotArm.WebApp.ViewModels;
 
 namespace RobotArm.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private readonly IRoleModel _roleModel;
@@ -33,14 +34,13 @@ namespace RobotArm.WebApp.Controllers
         public ActionResult Create(RoleViewModel role)
         {
             _roleModel.AddRole(role);
-            return this.Index();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public ActionResult Delete(string roleId)
+        public void Delete(string roleId)
         {
             _roleModel.DeleteRole(roleId);
-            return this.Index();
         }
     }
 }

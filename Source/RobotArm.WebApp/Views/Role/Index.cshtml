@@ -23,7 +23,8 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { roleId = item.Id })
+            @* TODO: It should rather be done is separeted .js file  *@
+            @Ajax.ActionLink("Delete", "Delete", new {roleId = item.Id}, new AjaxOptions {HttpMethod = "POST", OnSuccess = "window.location.reload(true)" })
         </td>
     </tr>
 }
