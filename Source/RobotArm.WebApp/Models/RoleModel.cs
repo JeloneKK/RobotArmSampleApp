@@ -7,6 +7,7 @@ using RobotArm.ServicesClients.UserManagement.Role;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
 using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Models
 {

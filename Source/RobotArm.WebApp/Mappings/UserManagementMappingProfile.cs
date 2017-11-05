@@ -3,14 +3,15 @@ using RobotArm.Data.Entities.UserManagement;
 using RobotArm.ServicesClients.UserManagement;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Mappings
 {
-    public class UserManagementMapping : Profile
+    public class UserManagementMappingProfile : Profile
     {
-        public override string ProfileName => nameof(UserManagementMapping);
+        public override string ProfileName => nameof(UserManagementMappingProfile);
 
-        public UserManagementMapping()
+        public UserManagementMappingProfile()
         {
             CreateMap<UserDto, UserViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(s => s.UserId));

@@ -8,7 +8,8 @@ namespace RobotArm.WebApp.Mappings
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<UserManagementMapping>();
+                x.AddProfile<UserManagementMappingProfile>();
+                x.AddProfile<RobotArmControlMappingProfile>();
             });
         }
     }

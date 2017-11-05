@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 
-namespace RobotArm.WebApp.ViewModels
+namespace RobotArm.WebApp.ViewModels.UserManagement
 {
     public class CreateEditUserViewModel
     {

@@ -10,6 +10,7 @@ using RobotArm.ServicesClients.UserManagement;
 using RobotArm.WebApp.ErrorHandlers;
 using RobotArm.WebApp.Helpers;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Controllers
 {

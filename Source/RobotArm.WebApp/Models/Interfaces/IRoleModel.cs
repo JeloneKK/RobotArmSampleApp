@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Models.Interfaces
 {

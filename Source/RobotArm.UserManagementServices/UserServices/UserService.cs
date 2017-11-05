@@ -13,9 +13,9 @@ using RobotArm.Common.ServiceResponses.ResponseData;
 using RobotArm.CommonServices.ErrorHandling;
 using RobotArm.Data.Entities.UserManagement;
 using RobotArm.RepositoriesInterfaces.UserManagement;
+using RobotArm.ServicesContracts.SharedContracts.FaultContracts;
 using RobotArm.ServicesContracts.UserManagement;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
-using RobotArm.ServicesContracts.UserManagement.FaultContracts;
 using RobotArm.ServicesContracts.UserManagement.ServiceContracts;
 using RobotArm.UserManagementServices.ErrorHandling;
 

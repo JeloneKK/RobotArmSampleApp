@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\RobotArmControl.RobotProgram\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UserManagement.Role\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,6 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\RobotArmControl.RobotProgram\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\RobotProgramService.wsdl" />
     <None Include="Connected Services\UserManagement.Role\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -79,10 +94,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\UserManagement.User\UserService.wsdl" />
+    <None Include="Properties\DataSources\RobotArm.ServicesContracts.RobotArmControl.DataContracts.RobotProgramDto.datasource" />
     <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto.datasource" />
     <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.UserDto.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\RobotArmControl.RobotProgram\" />
     <WCFMetadataStorage Include="Connected Services\UserManagement.Role\" />
     <WCFMetadataStorage Include="Connected Services\UserManagement.User\" />
   </ItemGroup>
@@ -121,6 +138,21 @@
       <Project>{743a14bf-1e5f-46e0-80bd-52a49b57a7c5}</Project>
       <Name>RobotArm.ServicesContracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RobotArmControl.RobotProgram\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

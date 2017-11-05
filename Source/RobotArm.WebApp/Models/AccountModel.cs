@@ -1,5 +1,6 @@
 ﻿using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Models
 {

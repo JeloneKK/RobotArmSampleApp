@@ -3,6 +3,9 @@ using Autofac.Integration.Wcf;
 using RobotArm.Common.Patterns.DbContext.DbContextScope;
 using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
 using RobotArm.HostingCommon.Initializing;
+using RobotArm.RobotArmControlBusinessLogic.RobotProgramBusinessLogics;
+using RobotArm.RobotArmControlRepositories.RobotProgramRepositories;
+using RobotArm.RobotArmControlServices.RobotProgramServices;
 using RobotArm.UserManagementBusinessLogic.UserBusinessLogics;
 using RobotArm.UserManagementRepositories.UserRepositories;
 using RobotArm.UserManagementServices.Mappings;
@@ -31,6 +34,18 @@ namespace RobotArm.UserManagementServicesWpfHost
             builder.RegisterType<DbContextScopeFactory>().As<IDbContextScopeFactory>();
             builder.RegisterType<AmbientDbContextLocator>().As<IAmbientDbContextLocator>();
 
+            this.SetAutofacContainerForUserManagement(builder);
+
+            // TODO: Move hosting to other project
+            this.SetAutofacContainerForRobotArmControl(builder);
+
+            _container = builder.Build();
+
+            AutofacHostFactory.Container = _container;
+        }
+
+        private void SetAutofacContainerForUserManagement(ContainerBuilder builder)
+        {
             // Repositories
             builder.RegisterAssemblyTypes(typeof(UserRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
@@ -45,10 +60,24 @@ namespace RobotArm.UserManagementServicesWpfHost
             builder.RegisterAssemblyTypes(typeof(UserService).Assembly)
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces();
+        }
 
-            _container = builder.Build();
+        private void SetAutofacContainerForRobotArmControl(ContainerBuilder builder)
+        {
+            // Repositories
+            builder.RegisterAssemblyTypes(typeof(RobotProgramRepository).Assembly)
+                .Where(t => t.Name.EndsWith("Repository"))
+                .AsImplementedInterfaces();
 
-            AutofacHostFactory.Container = _container;
+            // BusinessLogic
+            builder.RegisterAssemblyTypes(typeof(RobotProgramBusinessLogic).Assembly)
+                .Where(t => t.Name.EndsWith("BusinessLogic"))
+                .AsImplementedInterfaces();
+
+            // Services
+            builder.RegisterAssemblyTypes(typeof(RobotProgramService).Assembly)
+                .Where(t => t.Name.EndsWith("Service"))
+                .AsImplementedInterfaces();
         }
     }
 }

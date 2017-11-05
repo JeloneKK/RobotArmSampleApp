@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="95e7fed9-6a7b-43c7-9e6d-938bd439d384" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="RobotArm.ServicesContracts" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7011" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RobotProgramService.wsdl" MetadataType="Wsdl" ID="72726991-fab2-4707-b69a-609e873d4b3f" SourceId="1" SourceUrl="http://localhost:7011/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="4088c095-bc35-4f89-a498-52272d45a24f" SourceId="1" SourceUrl="http://localhost:7011/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="7165e371-e1a6-4db6-a76e-9285411598ca" SourceId="1" SourceUrl="http://localhost:7011/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="39cc7a3b-5b59-47d9-afd7-dbd9019dd572" SourceId="1" SourceUrl="http://localhost:7011/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="28242cf2-5d17-42f9-8559-740bb4c33e6e" SourceId="1" SourceUrl="http://localhost:7011/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

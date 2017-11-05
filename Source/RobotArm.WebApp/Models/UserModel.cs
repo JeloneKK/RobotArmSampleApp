@@ -8,10 +8,11 @@ using AutoMapper;
 using RobotArm.ServicesClients.UserManagement;
 using RobotArm.ServicesClients.UserManagement.Role;
 using RobotArm.ServicesClients.UserManagement.User;
+using RobotArm.ServicesContracts.SharedContracts.FaultContracts;
 using RobotArm.ServicesContracts.UserManagement.DataContracts;
-using RobotArm.ServicesContracts.UserManagement.FaultContracts;
 using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Models
 {

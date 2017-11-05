@@ -30,9 +30,9 @@
                         <li>@Html.ActionLink("Users", "Index", "User")</li>
                         <li>@Html.ActionLink("Roles", "Index", "Role")</li>
                     }
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin") || User.IsInRole("Engineer"))
                     {
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Robot Programs", "Index", "RobotProgram")</li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

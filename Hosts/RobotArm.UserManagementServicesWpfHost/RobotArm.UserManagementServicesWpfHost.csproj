@@ -122,6 +122,18 @@
       <Project>{F38436E9-6E96-4E83-9F29-AF9FB5FE923C}</Project>
       <Name>RobotArm.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Source\RobotArm.RobotArmControlBusinessLogic\RobotArm.RobotArmControlBusinessLogic.csproj">
+      <Project>{F5CCA24C-AFE9-4FEF-8147-2C1D35D3AF9D}</Project>
+      <Name>RobotArm.RobotArmControlBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\RobotArm.RobotArmControlRepositories\RobotArm.RobotArmControlRepositories.csproj">
+      <Project>{05D88198-1434-4EDD-9076-BDE03E9C4454}</Project>
+      <Name>RobotArm.RobotArmControlRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\RobotArm.RobotArmControlServices\RobotArm.RobotArmControlServices.csproj">
+      <Project>{CC004FF3-D74B-43F0-91E0-38AD3F75E02C}</Project>
+      <Name>RobotArm.RobotArmControlServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Source\RobotArm.ServicesInterfaces\RobotArm.ServicesContracts.csproj">
       <Project>{743A14BF-1E5F-46E0-80BD-52A49B57A7C5}</Project>
       <Name>RobotArm.ServicesContracts</Name>

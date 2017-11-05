@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using RobotArm.WebApp.Models.Interfaces;
 using RobotArm.WebApp.ViewModels;
+using RobotArm.WebApp.ViewModels.UserManagement;
 
 namespace RobotArm.WebApp.Controllers
 {

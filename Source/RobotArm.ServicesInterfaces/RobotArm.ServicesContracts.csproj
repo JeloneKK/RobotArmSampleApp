@@ -43,11 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RobotArmControl\DataContracts\CartesianPointDto.cs" />
+    <Compile Include="RobotArmControl\DataContracts\JointPointDto.cs" />
+    <Compile Include="RobotArmControl\DataContracts\ProgramStepDto.cs" />
+    <Compile Include="RobotArmControl\DataContracts\RobotProgramDto.cs" />
+    <Compile Include="RobotArmControl\DataContracts\StepDefinitionDto.cs" />
+    <Compile Include="RobotArmControl\ServiceContracts\IRobotProgramService.cs" />
     <Compile Include="UserManagement\DataContracts\RoleDto.cs" />
     <Compile Include="UserManagement\DataContracts\UserDto.cs" />
-    <Compile Include="UserManagement\FaultContracts\ArgumentFault.cs" />
-    <Compile Include="UserManagement\FaultContracts\BaseFault.cs" />
-    <Compile Include="UserManagement\FaultContracts\EntityNotFoundFault.cs" />
+    <Compile Include="SharedContracts\FaultContracts\ArgumentFault.cs" />
+    <Compile Include="SharedContracts\FaultContracts\BaseFault.cs" />
+    <Compile Include="SharedContracts\FaultContracts\EntityNotFoundFault.cs" />
     <Compile Include="UserManagement\ServiceContracts\IRoleService.cs" />
     <Compile Include="UserManagement\ServiceContracts\IUserService.cs" />
   </ItemGroup>
@@ -61,6 +67,9 @@
       <Name>RobotArm.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="RobotArmControl\FaultContracts\" />
+    <Folder Include="UserManagement\FaultContracts\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

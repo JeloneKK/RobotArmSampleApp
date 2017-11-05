@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace RobotArm.ServicesContracts.UserManagement.FaultContracts
+namespace RobotArm.ServicesContracts.SharedContracts.FaultContracts
 {
     [DataContract]
     public class EntityNotFoundFault : BaseFault

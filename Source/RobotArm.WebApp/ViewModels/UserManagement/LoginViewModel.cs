@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace RobotArm.WebApp.ViewModels
+namespace RobotArm.WebApp.ViewModels.UserManagement
 {
     public class LoginViewModel
     {

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/RobotArm.ServicesContracts.RobotArmControl.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RobotArm.ServicesContracts.RobotArmControl.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7011/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRobotProgramDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RobotProgramDto" nillable="true" type="tns:RobotProgramDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRobotProgramDto" nillable="true" type="tns:ArrayOfRobotProgramDto" />
+  <xs:complexType name="RobotProgramDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramSteps" nillable="true" type="tns:ArrayOfProgramStepDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RobotProgramDto" nillable="true" type="tns:RobotProgramDto" />
+  <xs:complexType name="ArrayOfProgramStepDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProgramStepDto" nillable="true" type="tns:ProgramStepDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProgramStepDto" nillable="true" type="tns:ArrayOfProgramStepDto" />
+  <xs:complexType name="ProgramStepDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CartesianPoints" nillable="true" type="tns:ArrayOfCartesianPointDto" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="JointPoints" nillable="true" type="tns:ArrayOfJointPointDto" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Step" nillable="true" type="tns:StepDefinitionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgramStepDto" nillable="true" type="tns:ProgramStepDto" />
+  <xs:complexType name="ArrayOfCartesianPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CartesianPointDto" nillable="true" type="tns:CartesianPointDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCartesianPointDto" nillable="true" type="tns:ArrayOfCartesianPointDto" />
+  <xs:complexType name="CartesianPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alpha" type="xs:double" />
+      <xs:element minOccurs="0" name="Beta" type="xs:double" />
+      <xs:element minOccurs="0" name="Gamma" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X" type="xs:double" />
+      <xs:element minOccurs="0" name="Y" type="xs:double" />
+      <xs:element minOccurs="0" name="Z" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CartesianPointDto" nillable="true" type="tns:CartesianPointDto" />
+  <xs:complexType name="ArrayOfJointPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JointPointDto" nillable="true" type="tns:JointPointDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJointPointDto" nillable="true" type="tns:ArrayOfJointPointDto" />
+  <xs:complexType name="JointPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="N1" type="xs:double" />
+      <xs:element minOccurs="0" name="N2" type="xs:double" />
+      <xs:element minOccurs="0" name="N3" type="xs:double" />
+      <xs:element minOccurs="0" name="N4" type="xs:double" />
+      <xs:element minOccurs="0" name="N5" type="xs:double" />
+      <xs:element minOccurs="0" name="N6" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JointPointDto" nillable="true" type="tns:JointPointDto" />
+  <xs:complexType name="StepDefinitionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StepDefinitionDto" nillable="true" type="tns:StepDefinitionDto" />
+</xs:schema>

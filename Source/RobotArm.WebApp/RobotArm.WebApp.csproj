@@ -285,6 +285,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RobotProgramController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="ErrorHandlers\CustomHandleErrorAttribute.cs" />
@@ -294,19 +295,23 @@
     <Compile Include="Helpers\CurrentSessionFacade.cs" />
     <Compile Include="Helpers\HtmlHelperExtension.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
-    <Compile Include="Mappings\UserManagementMapping.cs" />
+    <Compile Include="Mappings\RobotArmControlMappingProfile.cs" />
+    <Compile Include="Mappings\UserManagementMappingProfile.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Interfaces\IAccountModel.cs" />
+    <Compile Include="Models\Interfaces\IRobotProgramModel.cs" />
     <Compile Include="Models\Interfaces\IRoleModel.cs" />
     <Compile Include="Models\Interfaces\IUserModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\CreateEditUserViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\RoleViewModel.cs" />
-    <Compile Include="ViewModels\UserDetailsViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\RobotArmControl\ProgramStepViewModel.cs" />
+    <Compile Include="ViewModels\RobotArmControl\RobotProgramViewModel.cs" />
+    <Compile Include="ViewModels\UserManagement\CreateEditUserViewModel.cs" />
+    <Compile Include="ViewModels\UserManagement\LoginViewModel.cs" />
+    <Compile Include="ViewModels\UserManagement\RoleViewModel.cs" />
+    <Compile Include="ViewModels\UserManagement\UserDetailsViewModel.cs" />
+    <Compile Include="ViewModels\UserManagement\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -372,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RobotProgram\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
