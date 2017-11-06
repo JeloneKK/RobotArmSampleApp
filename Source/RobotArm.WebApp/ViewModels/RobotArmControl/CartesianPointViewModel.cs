@@ -12,5 +12,6 @@ namespace RobotArm.WebApp.ViewModels.RobotArmControl
         public double Alpha { get; set; }
         public double Beta { get; set; }
         public double Gamma { get; set; }
+        public string StepId { get; set; }
     }
 }

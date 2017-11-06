@@ -383,6 +383,10 @@
     <Content Include="Views\RobotProgram\GetSteps.cshtml" />
     <Content Include="Views\RobotProgram\GetPoints.cshtml" />
     <Content Include="Views\RobotProgram\ViewTest.cshtml" />
+    <Content Include="Views\RobotProgram\CreateProgram.cshtml" />
+    <Content Include="Views\RobotProgram\CreateStep.cshtml" />
+    <Content Include="Views\RobotProgram\EditProgram.cshtml" />
+    <Content Include="Views\RobotProgram\EditStep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,5 +22,7 @@ namespace RobotArm.ServicesContracts.RobotArmControl.DataContracts
         public double N5 { get; set; }
         [DataMember]
         public double N6 { get; set; }
+        [DataMember]
+        public Guid StepId { get; set; }
     }
 }

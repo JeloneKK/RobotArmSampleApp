@@ -10,5 +10,6 @@
         public double N4 { get; set; }
         public double N5 { get; set; }
         public double N6 { get; set; }
+        public string StepId { get; set; }
     }
 }

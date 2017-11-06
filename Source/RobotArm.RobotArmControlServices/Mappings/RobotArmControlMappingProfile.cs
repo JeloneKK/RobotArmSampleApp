@@ -11,7 +11,6 @@ namespace RobotArm.RobotArmControlServices.Mappings
         {
             CreateMap<RobotProgram, RobotProgramDto>()
                 .ForMember(dest => dest.CreationDate, opt => opt.MapFrom(s => s.CreationDate ?? DateTime.MinValue));
-
             CreateMap<RobotProgramDto, RobotProgram>()
                 .ForMember(dest => dest.CreationDate, opt => opt.Ignore());
 
@@ -21,9 +20,13 @@ namespace RobotArm.RobotArmControlServices.Mappings
 
             CreateMap<StepDefinition, StepDefinitionDto>().ReverseMap();
 
-            CreateMap<CartesianPoint, CartesianPointDto>().ReverseMap();
+            CreateMap<CartesianPoint, CartesianPointDto>();
+            CreateMap<CartesianPointDto, CartesianPoint>()
+                .ForMember(dest => dest.Step, opt => opt.MapFrom(s => new CartesianPoint { Id = s.StepId }));
 
-            CreateMap<JointPoint, JointPointDto>().ReverseMap();
+            CreateMap<JointPoint, JointPointDto>();
+            CreateMap<JointPointDto, JointPoint>()
+                .ForMember(dest => dest.Step, opt => opt.MapFrom(s => new JointPoint { Id = s.StepId }));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Wcf;
+using AutoMapper;
 using RobotArm.Common.Patterns.DbContext.DbContextScope;
 using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
 using RobotArm.Data.SeedData.RobotArmControl;
@@ -25,8 +26,12 @@ namespace RobotArm.UserManagementServicesWpfHost
             System.Data.Entity.Database.SetInitializer(new RobotArmControlSeedData());
 
             SetAutofacContainer();
-            AutoMapperConfiguration.Configure();
-            RobotArm.RobotArmControlServices.Mappings.AutoMapperConfiguration.Configure();
+
+            Mapper.Initialize(x =>
+            {
+                RobotArm.UserManagementServices.Mappings.AutoMapperConfiguration.ConfigAction.Invoke(x);
+                RobotArm.RobotArmControlServices.Mappings.AutoMapperConfiguration.ConfigAction.Invoke(x);
+            });
         }
 
         private void SetAutofacContainer()

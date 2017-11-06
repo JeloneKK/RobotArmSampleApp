@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 
 namespace RobotArm.UserManagementServices.Mappings
 {
@@ -11,5 +12,10 @@ namespace RobotArm.UserManagementServices.Mappings
                 x.AddProfile<UserMappingProfile>();
             });
         }
+
+        public static Action<IMapperConfigurationExpression> ConfigAction = cfg =>
+        {
+            cfg.AddProfile<UserMappingProfile>();
+        };
     }
 }

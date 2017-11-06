@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
+using AutoMapper.Configuration;
 
 namespace RobotArm.RobotArmControlServices.Mappings
 {
@@ -11,5 +13,10 @@ namespace RobotArm.RobotArmControlServices.Mappings
                 x.AddProfile<RobotArmControlMappingProfile>();
             });
         }
+
+        public static Action<IMapperConfigurationExpression> ConfigAction = cfg =>
+        {
+            cfg.AddProfile<RobotArmControlMappingProfile>();
+        };
     }
 }

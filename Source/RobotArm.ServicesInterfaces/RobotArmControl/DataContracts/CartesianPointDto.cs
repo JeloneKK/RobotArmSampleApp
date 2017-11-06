@@ -22,5 +22,7 @@ namespace RobotArm.ServicesContracts.RobotArmControl.DataContracts
         public double Beta { get; set; }
         [DataMember]
         public double Gamma { get; set; }
+        [DataMember]
+        public Guid StepId { get; set; }
     }
 }
