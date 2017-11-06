@@ -10,5 +10,10 @@ namespace RobotArm.BusinessLogicInterfaces.RobotArmControl
         void AddProgram(RobotProgram program);
         void UpdateProgram(RobotProgram program);
         void DeleteProgram(Guid id);
+
+        ProgramStep GetStep(Guid id);
+        void AddStep(ProgramStep step);
+        void UpdateStep(ProgramStep step);
+        void DeleteStep(Guid id);
     }
 }

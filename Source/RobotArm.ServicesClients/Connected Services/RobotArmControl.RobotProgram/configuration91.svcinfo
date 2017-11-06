@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="p/4TJF22ILYONP4KQq6p6ljZoQM=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4SfvdX7n4bEDTKKEwA8CDMOyXLw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IRobotProgramService">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IRobotProgramService" contract="RobotArmControl.RobotProgram.IRobotProgramService" bindingType="netTcpBinding" address="net.tcp://localhost:8011/RoleService" bindingConfiguration="NetTcpBinding_IRobotProgramService">
+    <endpoint name="NetTcpBinding_IRobotProgramService" contract="RobotArmControl.RobotProgram.IRobotProgramService" bindingType="netTcpBinding" address="net.tcp://localhost:8011/RobotProgramService" bindingConfiguration="NetTcpBinding_IRobotProgramService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8011/RoleService</serializedValue>
+          <serializedValue>net.tcp://localhost:8011/RobotProgramService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

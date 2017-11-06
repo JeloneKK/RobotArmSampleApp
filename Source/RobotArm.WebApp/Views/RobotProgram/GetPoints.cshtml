@@ -1,0 +1,137 @@
+﻿@using System.Web.Mvc.Html
+@model RobotArm.WebApp.ViewModels.RobotArmControl.ProgramStepViewModel
+
+@{
+    ViewBag.Title = "GetPoints";
+}
+
+<h2>Points</h2>
+<h3>@Model.Name</h3>
+
+
+<h4>Cartesian points</h4>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].X)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].Y)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].Z)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].Alpha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].Beta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CartesianPoints[0].Gamma)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CartesianPoints) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.X)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Y)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Z)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alpha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gamma)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<h4>Joint points</h4>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointPoints[0].N6)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.JointPoints) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N6)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -27,5 +27,17 @@ namespace RobotArm.WebApp.Controllers
             var programs = _robotProgramModel.GetPrograms();
             return View(programs);
         }
+
+        public ActionResult GetSteps(string programId)
+        {
+            var program = _robotProgramModel.GetProgram(new Guid(programId));
+            return View(program);
+        }
+
+        public ActionResult GetPoints(string stepId)
+        {
+            var step = _robotProgramModel.GetStep(new Guid(stepId));
+            return View(step);
+        }
     }
 }

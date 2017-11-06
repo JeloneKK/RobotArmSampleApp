@@ -18,5 +18,14 @@ namespace RobotArm.ServicesContracts.RobotArmControl.ServiceContracts
         void UpdateProgram(RobotProgramDto program);
         [OperationContract]
         void DeleteProgram(Guid id);
+
+        [OperationContract]
+        ProgramStepDto GetStep(Guid id);
+        [OperationContract]
+        void AddStep(ProgramStepDto step);
+        [OperationContract]
+        void UpdateStep(ProgramStepDto step);
+        [OperationContract]
+        void DeleteStep(Guid id);
     }
 }

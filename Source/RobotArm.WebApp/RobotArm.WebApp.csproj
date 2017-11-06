@@ -380,6 +380,9 @@
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\RobotProgram\Index.cshtml" />
     <Content Include="Views\RobotProgram\Get.cshtml" />
+    <Content Include="Views\RobotProgram\GetSteps.cshtml" />
+    <Content Include="Views\RobotProgram\GetPoints.cshtml" />
+    <Content Include="Views\RobotProgram\ViewTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,5 +11,10 @@ namespace RobotArm.WebApp.Models.Interfaces
         void AddProgram(RobotProgramViewModel program);
         void UpdateProgram(RobotProgramViewModel program);
         void DeleteProgram(Guid id);
+
+        ProgramStepViewModel GetStep(Guid id);
+        void AddStep(ProgramStepViewModel step);
+        void UpdateStep(ProgramStepViewModel step);
+        void DeleteStep(Guid id);
     }
 }

@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\UserManagement.User\UserService.wsdl" />
+    <None Include="Properties\DataSources\RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto.datasource" />
     <None Include="Properties\DataSources\RobotArm.ServicesContracts.RobotArmControl.DataContracts.RobotProgramDto.datasource" />
     <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.RoleDto.datasource" />
     <None Include="Properties\DataSources\RobotArm.ServicesContracts.UserManagement.DataContracts.UserDto.datasource" />

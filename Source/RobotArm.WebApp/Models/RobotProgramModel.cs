@@ -87,7 +87,64 @@ namespace RobotArm.WebApp.Models
             }
             catch (FaultException ex)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting progra,", ex);
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting program", ex);
+            }
+        }
+
+        public ProgramStepViewModel GetStep(Guid id)
+        {
+            try
+            {
+                ProgramStepDto step = _robotProgramService.GetStep(id);
+                return Mapper.Map<ProgramStepViewModel>(step);
+            }
+            catch (FaultException<EntityNotFoundFault> ex)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest, ex.Message, ex);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, $"Error occured while getting step {id}", ex);
+            }
+        }
+
+        public void AddStep(ProgramStepViewModel step)
+        {
+            try
+            {
+                ProgramStepDto stepDto = Mapper.Map<ProgramStepDto>(step);
+
+                _robotProgramService.AddStep(stepDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while adding step", ex);
+            }
+        }
+
+        public void UpdateStep(ProgramStepViewModel step)
+        {
+            try
+            {
+                ProgramStepDto stepDto = Mapper.Map<ProgramStepDto>(step);
+
+                _robotProgramService.UpdateStep(stepDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while updating step", ex);
+            }
+        }
+
+        public void DeleteStep(Guid id)
+        {
+            try
+            {
+                _robotProgramService.DeleteStep(id);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting step", ex);
             }
         }
     }

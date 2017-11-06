@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RobotArm.WebApp.ViewModels.RobotArmControl.JointPointViewModel>
+
+@{
+    ViewBag.Title = "ViewTest";
+}
+
+<h2>ViewTest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.N6)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N6)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

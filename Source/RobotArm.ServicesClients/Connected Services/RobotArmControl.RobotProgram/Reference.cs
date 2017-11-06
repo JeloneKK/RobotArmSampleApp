@@ -44,6 +44,30 @@ namespace RobotArm.ServicesClients.RobotArmControl.RobotProgram {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteProgram", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteProgramResponse")]
         System.Threading.Tasks.Task DeleteProgramAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/GetStep", ReplyAction="http://tempuri.org/IRobotProgramService/GetStepResponse")]
+        RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto GetStep(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/GetStep", ReplyAction="http://tempuri.org/IRobotProgramService/GetStepResponse")]
+        System.Threading.Tasks.Task<RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto> GetStepAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddStep", ReplyAction="http://tempuri.org/IRobotProgramService/AddStepResponse")]
+        void AddStep(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddStep", ReplyAction="http://tempuri.org/IRobotProgramService/AddStepResponse")]
+        System.Threading.Tasks.Task AddStepAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateStep", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateStepResponse")]
+        void UpdateStep(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateStep", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateStepResponse")]
+        System.Threading.Tasks.Task UpdateStepAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteStep", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteStepResponse")]
+        void DeleteStep(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteStep", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteStepResponse")]
+        System.Threading.Tasks.Task DeleteStepAsync(System.Guid id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +135,38 @@ namespace RobotArm.ServicesClients.RobotArmControl.RobotProgram {
         
         public System.Threading.Tasks.Task DeleteProgramAsync(System.Guid id) {
             return base.Channel.DeleteProgramAsync(id);
+        }
+        
+        public RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto GetStep(System.Guid id) {
+            return base.Channel.GetStep(id);
+        }
+        
+        public System.Threading.Tasks.Task<RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto> GetStepAsync(System.Guid id) {
+            return base.Channel.GetStepAsync(id);
+        }
+        
+        public void AddStep(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step) {
+            base.Channel.AddStep(step);
+        }
+        
+        public System.Threading.Tasks.Task AddStepAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step) {
+            return base.Channel.AddStepAsync(step);
+        }
+        
+        public void UpdateStep(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step) {
+            base.Channel.UpdateStep(step);
+        }
+        
+        public System.Threading.Tasks.Task UpdateStepAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.ProgramStepDto step) {
+            return base.Channel.UpdateStepAsync(step);
+        }
+        
+        public void DeleteStep(System.Guid id) {
+            base.Channel.DeleteStep(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteStepAsync(System.Guid id) {
+            return base.Channel.DeleteStepAsync(id);
         }
     }
 }

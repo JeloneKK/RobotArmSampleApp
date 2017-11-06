@@ -1,4 +1,5 @@
-﻿using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
+﻿using System;
+using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
 using RobotArm.CommonRepositories;
 using RobotArm.Data.DbContexts.RobotArmControl;
 using RobotArm.RepositoriesInterfaces.RobotArmControl;
@@ -11,6 +12,11 @@ namespace RobotArm.RobotArmControlRepositories
         protected RobotArmControlRepositoryBase(IAmbientDbContextLocator ambientDbContextLocator) 
             : base(ambientDbContextLocator)
         {
+        }
+
+        public override TEntity GetById(string id)
+        {
+            return DbSet.Find(new Guid(id));
         }
     }
 }

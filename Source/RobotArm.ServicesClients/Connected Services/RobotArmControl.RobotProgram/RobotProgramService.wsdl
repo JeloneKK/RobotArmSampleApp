@@ -45,6 +45,30 @@
   <wsdl:message name="IRobotProgramService_DeleteProgram_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProgramResponse" />
   </wsdl:message>
+  <wsdl:message name="IRobotProgramService_GetStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStep" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_GetStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddStep" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStep" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStep" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteStepResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRobotProgramService">
     <wsdl:operation name="GetPrograms">
       <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/GetPrograms" message="tns:IRobotProgramService_GetPrograms_InputMessage" />
@@ -65,6 +89,22 @@
     <wsdl:operation name="DeleteProgram">
       <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteProgram" message="tns:IRobotProgramService_DeleteProgram_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteProgramResponse" message="tns:IRobotProgramService_DeleteProgram_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStep">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/GetStep" message="tns:IRobotProgramService_GetStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/GetStepResponse" message="tns:IRobotProgramService_GetStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStep">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/AddStep" message="tns:IRobotProgramService_AddStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/AddStepResponse" message="tns:IRobotProgramService_AddStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStep">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateStep" message="tns:IRobotProgramService_UpdateStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateStepResponse" message="tns:IRobotProgramService_UpdateStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStep">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteStep" message="tns:IRobotProgramService_DeleteStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteStepResponse" message="tns:IRobotProgramService_DeleteStep_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IRobotProgramService" type="tns:IRobotProgramService">
@@ -115,12 +155,48 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetStep">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/GetStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStep">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/AddStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStep">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/UpdateStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStep">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/DeleteStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="RobotProgramService">
     <wsdl:port name="NetTcpBinding_IRobotProgramService" binding="tns:NetTcpBinding_IRobotProgramService">
-      <soap12:address location="net.tcp://localhost:8011/RoleService" />
+      <soap12:address location="net.tcp://localhost:8011/RobotProgramService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8011/RoleService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8011/RobotProgramService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

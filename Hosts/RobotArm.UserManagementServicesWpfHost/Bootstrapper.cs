@@ -26,6 +26,7 @@ namespace RobotArm.UserManagementServicesWpfHost
 
             SetAutofacContainer();
             AutoMapperConfiguration.Configure();
+            RobotArm.RobotArmControlServices.Mappings.AutoMapperConfiguration.Configure();
         }
 
         private void SetAutofacContainer()
