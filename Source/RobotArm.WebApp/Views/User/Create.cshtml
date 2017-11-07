@@ -57,7 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UserDetails.Roles, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.SelectedRoles, new MultiSelectList(Model.AllowedRoles, "Id", "Name", Model.SelectedRoles), new { multiple = "multiple"} )
+                @Html.DropDownListFor(model => model.SelectedRoles, new MultiSelectList(Model.AllowedRoles, "Id", "Name", Model.SelectedRoles), new { multiple = "multiple", @class = "form-control" } )
             </div>
         </div>
 

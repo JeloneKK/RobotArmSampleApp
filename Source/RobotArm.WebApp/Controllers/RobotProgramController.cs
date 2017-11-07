@@ -8,6 +8,8 @@ using RobotArm.WebApp.ViewModels.RobotArmControl;
 
 namespace RobotArm.WebApp.Controllers
 {
+
+    // TODO: Do something with CRUD operation to do not repeat code all the time (it's very schematic), (include all layers)
     [Authorize(Roles = "Admin, Engineer")]
     public class RobotProgramController : Controller
     {
@@ -50,6 +52,11 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         public ActionResult CreateProgram(RobotProgramViewModel program)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(program);
+            }
+
             _robotProgramModel.AddProgram(program);
             return RedirectToAction("Get");
         }
@@ -63,34 +70,136 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         public ActionResult EditProgram(RobotProgramViewModel program)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(program);
+            }
+
             _robotProgramModel.UpdateProgram(program);
             return RedirectToAction("Get");
         }
 
-        public ActionResult CreateStep()
+        [HttpPost]
+        public void DeleteProgram(string programId)
         {
-            var step = new ProgramStepViewModel();
+            _robotProgramModel.DeleteProgram(new Guid(programId));
+        }
+
+        public ActionResult CreateStep(string programId)
+        {
+            var step = new CreateEditProgramStepViewModel
+            {
+                ProgramStep = new ProgramStepViewModel
+                {
+                    ProgramId = programId
+                },
+                StepDefinitions = _robotProgramModel.GetStepDefinitions()
+                    .Select(sd => new SelectListItem { Value = sd.Id, Text = sd.Name })
+                    .ToList()
+            };
+
             return View(step);
         }
 
         [HttpPost]
-        public ActionResult CreateStep(ProgramStepViewModel step)
+        public ActionResult CreateStep(CreateEditProgramStepViewModel step)
         {
-            _robotProgramModel.AddStep(step);
-            return RedirectToAction("GetSteps", new { programId = step.ProgramId });
+            if (!ModelState.IsValid)
+            {
+                return View(step);
+            }
+
+            _robotProgramModel.AddStep(step.ProgramStep);
+            return RedirectToAction("GetSteps", new { programId = step.ProgramStep.ProgramId });
         }
 
         public ActionResult EditStep(string stepId)
         {
-            var step = _robotProgramModel.GetStep(new Guid(stepId));
+            var programStep = _robotProgramModel.GetStep(new Guid(stepId));
+
+            var step = new CreateEditProgramStepViewModel()
+            {
+                ProgramStep = programStep,
+                StepDefinitions = _robotProgramModel.GetStepDefinitions()
+                    .Select(sd => new SelectListItem { Value = sd.Id, Text = sd.Name, Selected = sd.Id == programStep.StepDefinitionId })
+                    .ToList()
+            };
+
             return View(step);
         }
 
         [HttpPost]
-        public ActionResult EditStep(ProgramStepViewModel step)
+        public ActionResult EditStep(CreateEditProgramStepViewModel step)
         {
-            _robotProgramModel.UpdateStep(step);
-            return RedirectToAction("GetSteps", new { programId = step.ProgramId });
+            if (!ModelState.IsValid)
+            {
+                return View(step);
+            }
+
+            _robotProgramModel.UpdateStep(step.ProgramStep);
+            return RedirectToAction("GetSteps", new { programId = step.ProgramStep.ProgramId });
+        }
+
+        [HttpPost]
+        public void DeleteStep(string stepId)
+        {
+            _robotProgramModel.DeleteStep(new Guid(stepId));
+        }
+
+        public ActionResult CreateCartesianPoint(string stepId)
+        {
+            var point = new CartesianPointViewModel
+            {
+                StepId = stepId
+            };
+
+            return View(point);
+        }
+
+        [HttpPost]
+        public ActionResult CreateCartesianPoint(CartesianPointViewModel point)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(point);
+            }
+
+            _robotProgramModel.AddCartesianPoint(point);
+            return RedirectToAction("GetPoints", new { stepId = point.StepId });
+        }
+
+        [HttpPost]
+        public void DeleteCartesianPoint(string pointId)
+        {
+            _robotProgramModel.DeleteCartesianPoint(new Guid(pointId));
+        }
+
+        public ActionResult CreateJointPoint(string stepId)
+        {
+            var point = new JointPointViewModel
+            {
+                StepId = stepId
+            };
+
+            return View(point);
+        }
+
+        [HttpPost]
+        public ActionResult CreateJointPoint(JointPointViewModel point)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(point);
+            }
+
+            _robotProgramModel.AddJointPoint(point);
+            return RedirectToAction("GetPoints", new { stepId = point.StepId });
+        }
+
+        [HttpPost]
+        public void DeleteJointPoint(string pointId)
+        {
+            _robotProgramModel.DeleteJointPoint(new Guid(pointId));
         }
     }
 }

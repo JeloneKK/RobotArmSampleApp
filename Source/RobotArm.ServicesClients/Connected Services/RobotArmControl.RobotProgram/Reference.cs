@@ -68,6 +68,48 @@ namespace RobotArm.ServicesClients.RobotArmControl.RobotProgram {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteStep", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteStepResponse")]
         System.Threading.Tasks.Task DeleteStepAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/AddCartesianPointResponse")]
+        void AddCartesianPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/AddCartesianPointResponse")]
+        System.Threading.Tasks.Task AddCartesianPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateCartesianPointResponse")]
+        void UpdateCartesianPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateCartesianPointResponse")]
+        System.Threading.Tasks.Task UpdateCartesianPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteCartesianPointResponse")]
+        void DeleteCartesianPoint(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteCartesianPoint", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteCartesianPointResponse")]
+        System.Threading.Tasks.Task DeleteCartesianPointAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/AddJointPointResponse")]
+        void AddJointPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/AddJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/AddJointPointResponse")]
+        System.Threading.Tasks.Task AddJointPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateJointPointResponse")]
+        void UpdateJointPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/UpdateJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/UpdateJointPointResponse")]
+        System.Threading.Tasks.Task UpdateJointPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteJointPointResponse")]
+        void DeleteJointPoint(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/DeleteJointPoint", ReplyAction="http://tempuri.org/IRobotProgramService/DeleteJointPointResponse")]
+        System.Threading.Tasks.Task DeleteJointPointAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/GetStepDefinitions", ReplyAction="http://tempuri.org/IRobotProgramService/GetStepDefinitionsResponse")]
+        RobotArm.ServicesContracts.RobotArmControl.DataContracts.StepDefinitionDto[] GetStepDefinitions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRobotProgramService/GetStepDefinitions", ReplyAction="http://tempuri.org/IRobotProgramService/GetStepDefinitionsResponse")]
+        System.Threading.Tasks.Task<RobotArm.ServicesContracts.RobotArmControl.DataContracts.StepDefinitionDto[]> GetStepDefinitionsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -167,6 +209,62 @@ namespace RobotArm.ServicesClients.RobotArmControl.RobotProgram {
         
         public System.Threading.Tasks.Task DeleteStepAsync(System.Guid id) {
             return base.Channel.DeleteStepAsync(id);
+        }
+        
+        public void AddCartesianPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point) {
+            base.Channel.AddCartesianPoint(point);
+        }
+        
+        public System.Threading.Tasks.Task AddCartesianPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point) {
+            return base.Channel.AddCartesianPointAsync(point);
+        }
+        
+        public void UpdateCartesianPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point) {
+            base.Channel.UpdateCartesianPoint(point);
+        }
+        
+        public System.Threading.Tasks.Task UpdateCartesianPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.CartesianPointDto point) {
+            return base.Channel.UpdateCartesianPointAsync(point);
+        }
+        
+        public void DeleteCartesianPoint(System.Guid id) {
+            base.Channel.DeleteCartesianPoint(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCartesianPointAsync(System.Guid id) {
+            return base.Channel.DeleteCartesianPointAsync(id);
+        }
+        
+        public void AddJointPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point) {
+            base.Channel.AddJointPoint(point);
+        }
+        
+        public System.Threading.Tasks.Task AddJointPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point) {
+            return base.Channel.AddJointPointAsync(point);
+        }
+        
+        public void UpdateJointPoint(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point) {
+            base.Channel.UpdateJointPoint(point);
+        }
+        
+        public System.Threading.Tasks.Task UpdateJointPointAsync(RobotArm.ServicesContracts.RobotArmControl.DataContracts.JointPointDto point) {
+            return base.Channel.UpdateJointPointAsync(point);
+        }
+        
+        public void DeleteJointPoint(System.Guid id) {
+            base.Channel.DeleteJointPoint(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteJointPointAsync(System.Guid id) {
+            return base.Channel.DeleteJointPointAsync(id);
+        }
+        
+        public RobotArm.ServicesContracts.RobotArmControl.DataContracts.StepDefinitionDto[] GetStepDefinitions() {
+            return base.Channel.GetStepDefinitions();
+        }
+        
+        public System.Threading.Tasks.Task<RobotArm.ServicesContracts.RobotArmControl.DataContracts.StepDefinitionDto[]> GetStepDefinitionsAsync() {
+            return base.Channel.GetStepDefinitionsAsync();
         }
     }
 }

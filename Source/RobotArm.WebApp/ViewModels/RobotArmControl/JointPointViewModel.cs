@@ -1,8 +1,11 @@
-﻿namespace RobotArm.WebApp.ViewModels.RobotArmControl
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RobotArm.WebApp.ViewModels.RobotArmControl
 {
     public class JointPointViewModel
     {
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public double N1 { get; set; }
         public double N2 { get; set; }

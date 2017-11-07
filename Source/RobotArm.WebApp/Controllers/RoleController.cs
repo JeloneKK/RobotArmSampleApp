@@ -34,6 +34,11 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         public ActionResult Create(RoleViewModel role)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(role);
+            }
+
             _roleModel.AddRole(role);
             return RedirectToAction("Index");
         }

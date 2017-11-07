@@ -6,12 +6,10 @@
 
 <h2>Steps</h2>
 
-<div>
-    Program: @Model.Name
-</div>
+<h3>Program: @Model.Name</h3>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "CreateStep", new { programId = Model.Id })
 </p>
 <table class="table">
     <tr>
@@ -24,20 +22,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.ProgramSteps) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Step.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { stepId = item.Id }) |
-            @Html.ActionLink("Points", "GetPoints", new { stepId = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { stepId = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.ProgramSteps) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Step.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditStep", new { stepId = item.Id }) |
+                @Html.ActionLink("Points", "GetPoints", new { stepId = item.Id }) |
+                @* TODO: It should rather be done is separeted .js file  *@
+                @Ajax.ActionLink("Delete", "DeleteStep", new { stepId = item.Id }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "window.location.reload(true)" })
+            </td>
+        </tr>
+    }
+    
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to Program", "Get")
+</div>

@@ -15,6 +15,8 @@ namespace RobotArm.Data.Configurations.RobotArmControl
             Property(x => x.Name).IsRequired();
             Property(x => x.CreationDate).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
             Property(x => x.CreationDate).IsOptional();
+
+            HasMany(c => c.ProgramSteps).WithRequired(x => x.Program).WillCascadeOnDelete(true);
         }
     }
 }

@@ -15,5 +15,15 @@ namespace RobotArm.BusinessLogicInterfaces.RobotArmControl
         void AddStep(ProgramStep step);
         void UpdateStep(ProgramStep step);
         void DeleteStep(Guid id);
+
+        void AddCartesianPoint(CartesianPoint point);
+        void UpdateCartesianPoint(CartesianPoint point);
+        void DeleteCartesianPoint(Guid id);
+
+        void AddJointPoint(JointPoint point);
+        void UpdateJointPoint(JointPoint point);
+        void DeleteJointPoint(Guid id);
+
+        StepDefinition[] GetStepDefinitions();
     }
 }

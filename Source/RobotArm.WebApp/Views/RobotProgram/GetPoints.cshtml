@@ -2,16 +2,16 @@
 @model RobotArm.WebApp.ViewModels.RobotArmControl.ProgramStepViewModel
 
 @{
-    ViewBag.Title = "GetPoints";
+    ViewBag.Title = "Points";
 }
 
 <h2>Points</h2>
-<h3>@Model.Name</h3>
+<h3>Step: @Model.Name</h3>
 
 
 <h4>Cartesian points</h4>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Cartesian Point", "CreateCartesianPoint", new { stepId = Model.Id })
 </p>
 <table class="table">
     <tr>
@@ -63,9 +63,8 @@
                 @Html.DisplayFor(modelItem => item.Gamma)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @* TODO: It should rather be done is separeted .js file  *@
+                @Ajax.ActionLink("Delete", "DeleteCartesianPoint", new { pointId = item.Id }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "window.location.reload(true)" })
             </td>
         </tr>
     }
@@ -75,7 +74,7 @@
 
 <h4>Joint points</h4>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Joint Point", "CreateJointPoint", new { stepId = Model.Id })
 </p>
 <table class="table">
     <tr>
@@ -127,11 +126,14 @@
                 @Html.DisplayFor(modelItem => item.N6)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @* TODO: It should rather be done is separeted .js file  *@
+                @Ajax.ActionLink("Delete", "DeleteJointPoint", new { pointId = item.Id }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "window.location.reload(true)" })
             </td>
         </tr>
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to Step", "GetSteps", new { programId = Model.ProgramId })
+</div>

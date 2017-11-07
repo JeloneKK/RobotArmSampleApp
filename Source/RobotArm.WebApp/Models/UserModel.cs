@@ -134,7 +134,7 @@ namespace RobotArm.WebApp.Models
 
         public RoleViewModel[] GetRoles(IEnumerable<string> rolesIds)
         {
-            return this.GetAllRoles().Where(r => rolesIds.Contains(r.Id)).ToArray();
+            return this.GetAllRoles().Where(r => (rolesIds ?? Enumerable.Empty<string>()).Contains(r.Id)).ToArray();
         }
     }
 }

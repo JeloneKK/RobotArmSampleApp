@@ -69,6 +69,48 @@
   <wsdl:message name="IRobotProgramService_DeleteStep_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteStepResponse" />
   </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddCartesianPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCartesianPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddCartesianPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCartesianPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateCartesianPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCartesianPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateCartesianPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCartesianPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteCartesianPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCartesianPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteCartesianPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCartesianPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddJointPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddJointPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_AddJointPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddJointPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateJointPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJointPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_UpdateJointPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJointPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteJointPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJointPoint" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_DeleteJointPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJointPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_GetStepDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStepDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IRobotProgramService_GetStepDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStepDefinitionsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRobotProgramService">
     <wsdl:operation name="GetPrograms">
       <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/GetPrograms" message="tns:IRobotProgramService_GetPrograms_InputMessage" />
@@ -105,6 +147,34 @@
     <wsdl:operation name="DeleteStep">
       <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteStep" message="tns:IRobotProgramService_DeleteStep_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteStepResponse" message="tns:IRobotProgramService_DeleteStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCartesianPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/AddCartesianPoint" message="tns:IRobotProgramService_AddCartesianPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/AddCartesianPointResponse" message="tns:IRobotProgramService_AddCartesianPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCartesianPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateCartesianPoint" message="tns:IRobotProgramService_UpdateCartesianPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateCartesianPointResponse" message="tns:IRobotProgramService_UpdateCartesianPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartesianPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteCartesianPoint" message="tns:IRobotProgramService_DeleteCartesianPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteCartesianPointResponse" message="tns:IRobotProgramService_DeleteCartesianPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddJointPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/AddJointPoint" message="tns:IRobotProgramService_AddJointPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/AddJointPointResponse" message="tns:IRobotProgramService_AddJointPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJointPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateJointPoint" message="tns:IRobotProgramService_UpdateJointPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/UpdateJointPointResponse" message="tns:IRobotProgramService_UpdateJointPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJointPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteJointPoint" message="tns:IRobotProgramService_DeleteJointPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/DeleteJointPointResponse" message="tns:IRobotProgramService_DeleteJointPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStepDefinitions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRobotProgramService/GetStepDefinitions" message="tns:IRobotProgramService_GetStepDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRobotProgramService/GetStepDefinitionsResponse" message="tns:IRobotProgramService_GetStepDefinitions_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IRobotProgramService" type="tns:IRobotProgramService">
@@ -184,6 +254,69 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteStep">
       <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/DeleteStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCartesianPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/AddCartesianPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCartesianPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/UpdateCartesianPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartesianPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/DeleteCartesianPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddJointPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/AddJointPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJointPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/UpdateJointPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJointPoint">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/DeleteJointPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStepDefinitions">
+      <soap12:operation soapAction="http://tempuri.org/IRobotProgramService/GetStepDefinitions" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

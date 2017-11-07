@@ -16,17 +16,15 @@ namespace RobotArm.RobotArmControlServices.Mappings
 
             CreateMap<ProgramStep, ProgramStepDto>();
             CreateMap<ProgramStepDto, ProgramStep>()
-                .ForMember(dest => dest.Program, opt => opt.MapFrom(s => new RobotProgram { Id = s.ProgramId }));
+                .ForMember(dest => dest.Program, opt => opt.Ignore());
 
             CreateMap<StepDefinition, StepDefinitionDto>().ReverseMap();
 
             CreateMap<CartesianPoint, CartesianPointDto>();
-            CreateMap<CartesianPointDto, CartesianPoint>()
-                .ForMember(dest => dest.Step, opt => opt.MapFrom(s => new CartesianPoint { Id = s.StepId }));
+            CreateMap<CartesianPointDto, CartesianPoint>();
 
             CreateMap<JointPoint, JointPointDto>();
-            CreateMap<JointPointDto, JointPoint>()
-                .ForMember(dest => dest.Step, opt => opt.MapFrom(s => new JointPoint { Id = s.StepId }));
+            CreateMap<JointPointDto, JointPoint>();
         }
     }
 }

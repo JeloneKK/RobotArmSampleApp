@@ -140,6 +140,7 @@ namespace RobotArm.RobotArmControlServices.RobotProgramServices
 
         public void AddStep(ProgramStepDto step)
         {
+            // TODO: null-possibility should rather be checked in Buisness logic, and here just try-catch-toFaultConv
             if (step == null)
             {
                 var fault = new ArgumentFault
@@ -177,6 +178,112 @@ namespace RobotArm.RobotArmControlServices.RobotProgramServices
         public void DeleteStep(Guid id)
         {
             _robotProgramBusinessLogic.DeleteStep(id);
+        }
+
+        public void AddCartesianPoint(CartesianPointDto point)
+        {
+            // TODO: null-possibility should rather be checked in Buisness logic, and here just try-catch-toFaultConv
+            if (point == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(point)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            CartesianPoint pointEntity = Mapper.Map<CartesianPoint>(point);
+
+            _robotProgramBusinessLogic.AddCartesianPoint(pointEntity);
+        }
+
+        public void UpdateCartesianPoint(CartesianPointDto point)
+        {
+            // TODO: null-possibility should rather be checked in Buisness logic, and here just try-catch-toFaultConv
+            if (point == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(point)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            CartesianPoint pointEntity = Mapper.Map<CartesianPoint>(point);
+
+            _robotProgramBusinessLogic.UpdateCartesianPoint(pointEntity);
+        }
+
+        public void DeleteCartesianPoint(Guid id)
+        {
+            _robotProgramBusinessLogic.DeleteCartesianPoint(id);
+        }
+
+        public void AddJointPoint(JointPointDto point)
+        {
+            // TODO: null-possibility should rather be checked in Buisness logic, and here just try-catch-toFaultConv
+            if (point == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(point)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            JointPoint pointEntity = Mapper.Map<JointPoint>(point);
+
+            _robotProgramBusinessLogic.AddJointPoint(pointEntity);
+        }
+
+        public void UpdateJointPoint(JointPointDto point)
+        {
+            // TODO: null-possibility should rather be checked in Buisness logic, and here just try-catch-toFaultConv
+            if (point == null)
+            {
+                var fault = new ArgumentFault
+                {
+                    Message = "Argumnet is null",
+                    ArgumentName = nameof(point)
+                };
+
+                throw new FaultException<ArgumentFault>(fault);
+            }
+
+            JointPoint pointEntity = Mapper.Map<JointPoint>(point);
+
+            _robotProgramBusinessLogic.UpdateJointPoint(pointEntity);
+        }
+
+        public void DeleteJointPoint(Guid id)
+        {
+            _robotProgramBusinessLogic.DeleteJointPoint(id);
+        }
+
+        public StepDefinitionDto[] GetStepDefinitions()
+        {
+            StepDefinition[] stepDefinitions;
+
+            try
+            {
+                stepDefinitions = _robotProgramBusinessLogic.GetStepDefinitions();
+            }
+            catch (Exception ex)
+            {
+                this.Log.Error(LogHelper.GetMethodInfoErrorMessage(MethodBase.GetCurrentMethod()), ex);
+
+                throw new FaultException();
+            }
+
+            StepDefinitionDto[] stepDefinitionsDtos = Mapper.Map<StepDefinitionDto[]>(stepDefinitions);
+
+            return stepDefinitionsDtos;
         }
     }
 }

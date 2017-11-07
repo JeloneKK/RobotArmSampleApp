@@ -13,6 +13,8 @@ namespace RobotArm.ServicesContracts.RobotArmControl.DataContracts
         [DataMember]
         public string Name { get; set; }
         [DataMember]
+        public Guid StepDefinitionId { get; set; }
+        [DataMember]
         public StepDefinitionDto Step { get; set; }
         [DataMember]
         public JointPointDto[] JointPoints { get; set; }

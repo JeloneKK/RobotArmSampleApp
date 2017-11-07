@@ -27,5 +27,22 @@ namespace RobotArm.ServicesContracts.RobotArmControl.ServiceContracts
         void UpdateStep(ProgramStepDto step);
         [OperationContract]
         void DeleteStep(Guid id);
+
+        [OperationContract]
+        void AddCartesianPoint(CartesianPointDto point);
+        [OperationContract]
+        void UpdateCartesianPoint(CartesianPointDto point);
+        [OperationContract]
+        void DeleteCartesianPoint(Guid id);
+
+        [OperationContract]
+        void AddJointPoint(JointPointDto point);
+        [OperationContract]
+        void UpdateJointPoint(JointPointDto point);
+        [OperationContract]
+        void DeleteJointPoint(Guid id);
+
+        [OperationContract]
+        StepDefinitionDto[] GetStepDefinitions();
     }
 }

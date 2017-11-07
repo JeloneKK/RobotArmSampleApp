@@ -147,5 +147,98 @@ namespace RobotArm.WebApp.Models
                 throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting step", ex);
             }
         }
+
+        public void AddCartesianPoint(CartesianPointViewModel point)
+        {
+            try
+            {
+                CartesianPointDto pointDto = Mapper.Map<CartesianPointDto>(point);
+
+                _robotProgramService.AddCartesianPoint(pointDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while adding point", ex);
+            }
+        }
+
+        public void UpdateCartesianPoint(CartesianPointViewModel point)
+        {
+            try
+            {
+                CartesianPointDto pointDto = Mapper.Map<CartesianPointDto>(point);
+
+                _robotProgramService.UpdateCartesianPoint(pointDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while updating point", ex);
+            }
+        }
+
+        public void DeleteCartesianPoint(Guid id)
+        {
+            try
+            {
+                _robotProgramService.DeleteCartesianPoint(id);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting point", ex);
+            }
+        }
+
+        public void AddJointPoint(JointPointViewModel point)
+        {
+            try
+            {
+                JointPointDto pointDto = Mapper.Map<JointPointDto>(point);
+
+                _robotProgramService.AddJointPoint(pointDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while adding point", ex);
+            }
+        }
+
+        public void UpdateJointPoint(JointPointViewModel point)
+        {
+            try
+            {
+                JointPointDto pointDto = Mapper.Map<JointPointDto>(point);
+
+                _robotProgramService.UpdateJointPoint(pointDto);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while updating point", ex);
+            }
+        }
+
+        public void DeleteJointPoint(Guid id)
+        {
+            try
+            {
+                _robotProgramService.DeleteJointPoint(id);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error occured while deleting point", ex);
+            }
+        }
+
+        public List<StepDefinitionViewModel> GetStepDefinitions()
+        {
+            try
+            {
+                StepDefinitionDto[] programs = _robotProgramService.GetStepDefinitions();
+                return Mapper.Map<List<StepDefinitionViewModel>>(programs);
+            }
+            catch (FaultException ex)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
     }
 }

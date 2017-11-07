@@ -63,6 +63,10 @@
       <Project>{7BBB03CF-D2D6-46F6-9CE2-B13B34884D50}</Project>
       <Name>RobotArm.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RobotArm.ServicesInterfaces\RobotArm.ServicesContracts.csproj">
+      <Project>{743A14BF-1E5F-46E0-80BD-52A49B57A7C5}</Project>
+      <Name>RobotArm.ServicesContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

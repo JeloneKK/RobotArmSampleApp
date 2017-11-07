@@ -1,4 +1,5 @@
-﻿using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
+﻿using System.Data.Entity;
+using RobotArm.Common.Patterns.DbContext.DbContextScope.Interfaces;
 using RobotArm.Data.Entities.RobotArmControl;
 using RobotArm.RepositoriesInterfaces.RobotArmControl;
 

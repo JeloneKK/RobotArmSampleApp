@@ -6,8 +6,10 @@ namespace RobotArm.WebApp.ViewModels.RobotArmControl
     public class ProgramStepViewModel
     {
         public string Id { get; set; }
+        [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
+        public string StepDefinitionId { get; set; }
         [Display(Name = "Step Type")]
         public StepDefinitionViewModel Step { get; set; }
         public List<JointPointViewModel> JointPoints { get; set; }

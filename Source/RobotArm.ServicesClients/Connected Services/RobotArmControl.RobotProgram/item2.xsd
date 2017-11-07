@@ -46,6 +46,7 @@
       <xs:element minOccurs="0" name="Gamma" type="xs:double" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StepId" type="ser:guid" />
       <xs:element minOccurs="0" name="X" type="xs:double" />
       <xs:element minOccurs="0" name="Y" type="xs:double" />
       <xs:element minOccurs="0" name="Z" type="xs:double" />
@@ -68,6 +69,7 @@
       <xs:element minOccurs="0" name="N5" type="xs:double" />
       <xs:element minOccurs="0" name="N6" type="xs:double" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StepId" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="JointPointDto" nillable="true" type="tns:JointPointDto" />
@@ -80,4 +82,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StepDefinitionDto" nillable="true" type="tns:StepDefinitionDto" />
+  <xs:complexType name="ArrayOfStepDefinitionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StepDefinitionDto" nillable="true" type="tns:StepDefinitionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStepDefinitionDto" nillable="true" type="tns:ArrayOfStepDefinitionDto" />
 </xs:schema>

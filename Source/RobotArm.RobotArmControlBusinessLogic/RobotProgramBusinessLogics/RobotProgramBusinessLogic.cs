@@ -8,16 +8,29 @@ using RobotArm.RepositoriesInterfaces.RobotArmControl;
 
 namespace RobotArm.RobotArmControlBusinessLogic.RobotProgramBusinessLogics
 {
+    // TODO: Refactor, DRY!!
     public class RobotProgramBusinessLogic : RobotArmControlBusinessLogicBase, IRobotProgramBusinessLogic
     {
         private readonly IRobotProgramRepository _robotProgramRepository;
         private readonly IProgramStepRepository _programStepRepositor;
+        private readonly ICartesianPointRepository _cartesianPointRepository;
+        private readonly IJointPointRepository _jointPointRepository;
+        private readonly IStepDefinitionRepository _stepDefinitionRepository;
 
-        public RobotProgramBusinessLogic(IDbContextScopeFactory dbContextScopeFactory, IRobotProgramRepository robotProgramRepository, IProgramStepRepository programStepRepositor) 
+        public RobotProgramBusinessLogic(
+            IDbContextScopeFactory dbContextScopeFactory, 
+            IRobotProgramRepository robotProgramRepository, 
+            IProgramStepRepository programStepRepositor, 
+            ICartesianPointRepository cartesianPointRepository, 
+            IJointPointRepository jointPointRepository, 
+            IStepDefinitionRepository stepDefinitionRepository) 
             : base(dbContextScopeFactory)
         {
             _robotProgramRepository = robotProgramRepository;
             _programStepRepositor = programStepRepositor;
+            _cartesianPointRepository = cartesianPointRepository;
+            _jointPointRepository = jointPointRepository;
+            _stepDefinitionRepository = stepDefinitionRepository;
         }
 
         public RobotProgram[] GetPrograms()
@@ -130,6 +143,68 @@ namespace RobotArm.RobotArmControlBusinessLogic.RobotProgramBusinessLogics
             {
                 _programStepRepositor.Delete(p => p.Id == id);
                 dbContextScope.SaveChanges();
+            }
+        }
+
+        public void AddCartesianPoint(CartesianPoint point)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _cartesianPointRepository.Add(point);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void UpdateCartesianPoint(CartesianPoint point)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _cartesianPointRepository.Update(point);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void DeleteCartesianPoint(Guid id)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _cartesianPointRepository.Delete(p => p.Id == id);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void AddJointPoint(JointPoint point)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _jointPointRepository.Add(point);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void UpdateJointPoint(JointPoint point)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _jointPointRepository.Update(point);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public void DeleteJointPoint(Guid id)
+        {
+            using (var dbContextScope = DbContextScopeFactory.Create())
+            {
+                _jointPointRepository.Delete(p => p.Id == id);
+                dbContextScope.SaveChanges();
+            }
+        }
+
+        public StepDefinition[] GetStepDefinitions()
+        {
+            using (DbContextScopeFactory.CreateReadOnly())
+            {
+                return _stepDefinitionRepository.GetAll().ToArray();
             }
         }
     }

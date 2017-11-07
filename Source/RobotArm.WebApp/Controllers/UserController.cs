@@ -46,9 +46,15 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         public ActionResult Edit(CreateEditUserViewModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+
             user.UserDetails.Roles = _userModel.GetRoles(user.SelectedRoles).ToList();
             _userModel.Update(user.UserDetails);
-            return View("Details", user.UserDetails);
+
+            return RedirectToAction("Details", new { userId = user.UserDetails.User.Id });
         }
 
         public ActionResult Create()
@@ -68,9 +74,15 @@ namespace RobotArm.WebApp.Controllers
         [HttpPost]
         public ActionResult Create(CreateEditUserViewModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+
             user.UserDetails.Roles = _userModel.GetRoles(user.SelectedRoles).ToList();
             _userModel.Create(user.UserDetails);
-            return View("Details", user.UserDetails);
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

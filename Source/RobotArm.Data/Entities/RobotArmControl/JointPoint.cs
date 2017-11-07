@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RobotArm.Data.Entities.RobotArmControl
 {
@@ -12,6 +13,8 @@ namespace RobotArm.Data.Entities.RobotArmControl
         public double N4 { get; set; }
         public double N5 { get; set; }
         public double N6 { get; set; }
+        [ForeignKey(nameof(Step))]
+        public Guid StepId { get; set; }
 
         public virtual ProgramStep Step { get; set; }
     }

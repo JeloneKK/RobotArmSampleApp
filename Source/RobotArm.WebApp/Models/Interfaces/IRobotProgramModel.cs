@@ -16,5 +16,15 @@ namespace RobotArm.WebApp.Models.Interfaces
         void AddStep(ProgramStepViewModel step);
         void UpdateStep(ProgramStepViewModel step);
         void DeleteStep(Guid id);
+
+        void AddCartesianPoint(CartesianPointViewModel point);
+        void UpdateCartesianPoint(CartesianPointViewModel point);
+        void DeleteCartesianPoint(Guid id);
+
+        void AddJointPoint(JointPointViewModel point);
+        void UpdateJointPoint(JointPointViewModel point);
+        void DeleteJointPoint(Guid id);
+
+        List<StepDefinitionViewModel> GetStepDefinitions();
     }
 }

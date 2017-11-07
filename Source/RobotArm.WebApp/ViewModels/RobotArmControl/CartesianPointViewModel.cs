@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RobotArm.WebApp.ViewModels.RobotArmControl
 {
     public class CartesianPointViewModel
     {
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
