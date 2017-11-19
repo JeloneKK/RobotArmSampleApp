@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 /Source/RobotArm.WebApp/common.log-2017 - 11 - 07
 /Source/RobotArm.WebApp/userManagement.log-2017 - 11 - 07
+*.log-2017 - 11 - 08
